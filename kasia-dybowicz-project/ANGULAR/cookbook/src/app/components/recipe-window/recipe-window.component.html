@@ -1,108 +1,117 @@
 <div class="wrap">
     <div class="recipe-card">
         <div class="filter">
-            <span>Filter</span>
+            <span>Filter</span> <!-- Filter label -->
             <div class="dropdown-content">
-                <h4>Difficulty</h4>
+                <h4>Difficulty</h4> <!-- Difficulty filter header -->
 
+                <!-- Radio button for basic difficulty filter -->
                 <input name="filter"
                        type="radio"
                        value="basic"
                        (change)="filter('basic')"/>
                 <label>Basic</label><br/>
 
+                <!-- Radio button for easy difficulty filter -->
                 <input name="filter"
                        type="radio"
                        value="easy"
                        (change)="filter('easy')"/>
                 <label>Easy</label><br/>
 
+                <!-- Radio button for intermediate difficulty filter -->
                 <input name="filter"
                        type="radio"
                        value="intermediate"
                        (change)="filter('intermediate')"/>
                 <label>Intermediate</label><br/>
 
+                <!-- Radio button for difficult difficulty filter -->
                 <input name="filter"
                        type="radio"
                        value="difficult"
                        (change)="filter('difficult')"/>
                 <label>Difficult</label><br/>
 
+                <h4>Recipe type</h4> <!-- Recipe type filter header -->
 
-                <h4>Recipe type</h4>
-
+                <!-- Radio button for cocktail type filter -->
                 <input name="filter"
                        type="radio"
                        value="cocktail"
                        (change)="filter('cocktail')"/>
                 <label>Cocktail</label><br/>
 
+                <!-- Radio button for breakfast type filter -->
                 <input name="filter"
                        type="radio"
                        value="breakfast"
                        (change)="filter('breakfast')"/>
                 <label>Breakfast</label><br/>
 
+                <!-- Radio button for healthy type filter -->
                 <input name="filter"
                        type="radio"
                        value="healthy"
                        (change)="filter('healthy')"/>
                 <label>Healthy</label><br/>
 
+                <!-- Radio button for asian type filter -->
                 <input name="filter"
                        type="radio"
                        value="asian"
                        (change)="filter('asian')"/>
                 <label>Asian</label><br/>
 
+                <!-- Radio button for dinner type filter -->
                 <input name="filter"
                        type="radio"
                        value="dinner"
                        (change)="filter('dinner')"/>
                 <label>Dinner</label><br/>
 
+                <!-- Radio button for dessert type filter -->
                 <input name="filter"
                        type="radio"
                        value="dessert"
                        (change)="filter('dessert')"/>
                 <label>Dessert</label><br/>
+
+                <!-- Clear filter button -->
                 <button class="clear" (click)="clear()">Clear</button>
             </div>
         </div>
         <table>
             <tr>
-                <th>
-                </th>
+                <th></th>
                 <th (click)="sortByTitle()" class="clickable">Recipe title
-                    <span [ngStyle]="{'color': isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
-                    <span [ngStyle]="{'color': !isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    <span [ngStyle]="{'color': isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11165;</span> <!-- Up arrow for sorting indicator -->
+                    <span [ngStyle]="{'color': !isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11167;</span> <!-- Down arrow for sorting indicator -->
                 </th>
                 <th (click)="sortByType()" class="clickable">Recipe type
-                    <span [ngStyle]="{'color': isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
-                    <span [ngStyle]="{'color': !isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    <span [ngStyle]="{'color': isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11165;</span> <!-- Up arrow for sorting indicator -->
+                    <span [ngStyle]="{'color': !isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11167;</span> <!-- Down arrow for sorting indicator -->
                 </th>
                 <th (click)="sortByDifficulty()" class="clickable">Difficulty
-                    <span [ngStyle]="{'color': isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
-                    <span [ngStyle]="{'color': !isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    <span [ngStyle]="{'color': isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11165;</span> <!-- Up arrow for sorting indicator -->
+                    <span [ngStyle]="{'color': !isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11167;</span> <!-- Down arrow for sorting indicator -->
                 </th>
-                <th>
-
-                </th>
+                <th></th>
             </tr>
 
-            <tr *ngFor="let recipe of allRecipes"> <!-- table data row -->
+            <!-- Table data row for each recipe -->
+            <tr *ngFor="let recipe of allRecipes">
                 <td (click)="onSelect(recipe)" class="clickable">
-                    <div class="recipe_photo"><img [src]="recipe.photoUrl" alt="photo of the dish"></div>
+                    <div class="recipe_photo"><img [src]="recipe.photoUrl" alt="photo of the dish"></div> <!-- Recipe photo -->
                 </td>
-                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.title }}</td>
-                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.cuisine }}</td>
-                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.difficulty }}</td>
+                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.title }}</td> <!-- Recipe title -->
+                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.cuisine }}</td> <!-- Recipe cuisine -->
+                <td (click)="onSelect(recipe)" class="clickable">{{ recipe.difficulty }}</td> <!-- Recipe difficulty -->
                 <td>
                     <div class="icons">
-                        <!--        <button class="heart-button" (click)="addToFavourites()" ) onclick="this.classList.toggle('active')"></button>-->
                         <div class="annotation">
                             <label class="heart-checkbox">
+                                <!-- Checkbox for adding to favourites -->
                                 <input type="checkbox" hidden [checked]="favouriteRecipeCheck(recipe.recipeId)"
                                        (change)="onCheckboxChange($event, recipe.recipeId)">
                                 <span>&#x2764;</span> <!-- Unicode heart symbol -->
@@ -113,6 +122,7 @@
                         </div>
 
                         <div class="annotation">
+                            <!-- Edit icon, visible for ADMIN role -->
                             <img class="edit-image" src="assets/Photos/edit.png" *ngIf="this.activeUser.role==='ADMIN'"
                                  (click)="editRecipe(recipe)">
                             <div class="note">
@@ -121,6 +131,7 @@
                         </div>
 
                         <div class="annotation">
+                            <!-- Delete icon, visible for ADMIN role -->
                             <img class="delete-image" src="assets/Photos/garbage-bin.png"
                                  *ngIf="this.activeUser.role==='ADMIN'" (click)="deleteRecipe(recipe)">
                             <div class="note">

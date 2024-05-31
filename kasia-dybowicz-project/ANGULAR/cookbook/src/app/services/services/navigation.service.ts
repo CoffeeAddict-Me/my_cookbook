@@ -1,50 +1,45 @@
-import {Injectable} from '@angular/core';
-import {Router} from "@angular/router";
+import {Injectable} from '@angular/core'; // Import Injectable from Angular core
+import {Router} from "@angular/router"; // Import Router from Angular router
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root' // Provide this service at the root level
 })
 export class NavigationService {
 
     constructor(
-        private router: Router = new Router()
-    ) {
+        private router: Router = new Router() // Inject Router
+    ) {}
 
-    }
-
-    buttonsFormatting() {
-        if (this.router.url === '/home') {
-            //grabbing a button depending on id - used id because they will be unique
-            var button = document.getElementById('homeId')
-            // just and if statement to check if the element is no null
-            if (button !== null)
-                //styling - a bottom border line (consistent with the rest of the design)
-                button.style.borderBottomColor = "#33c71b"
+    buttonsFormatting() { // Method to format buttons based on the current URL
+        if (this.router.url === '/home') { // Check if the current URL is '/home'
+            var button = document.getElementById('homeId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
-        if (this.router.url === '/about') {
-            var button = document.getElementById('aboutId')
-            if (button !== null)
-                button.style.borderBottomColor = "#33c71b"
+        if (this.router.url === '/about') { // Check if the current URL is '/about'
+            var button = document.getElementById('aboutId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
-        if (this.router.url === '/fave') {
-            var button = document.getElementById('favouritesId')
-            if (button !== null)
-                button.style.borderBottomColor = "#33c71b"
+        if (this.router.url === '/fave') { // Check if the current URL is '/fave'
+            var button = document.getElementById('favouritesId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
-        if (this.router.url === '/list') {
-            var button = document.getElementById('shoppingId')
-            if (button !== null)
-                button.style.borderBottomColor = "#33c71b"
+        if (this.router.url === '/list') { // Check if the current URL is '/list'
+            var button = document.getElementById('shoppingId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
-        if (this.router.url === '/account') {
-            var button = document.getElementById('accountId')
-            if (button !== null)
-                button.style.borderBottomColor = "#33c71b"
+        if (this.router.url === '/account') { // Check if the current URL is '/account'
+            var button = document.getElementById('accountId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
-        if (this.router.url === '/add') {
-            var button = document.getElementById('addtId')
-            if (button !== null)
-                button.style.borderBottomColor = "#33c71b"
+        if (this.router.url === '/add') { // Check if the current URL is '/add'
+            var button = document.getElementById('addtId'); // Get the button by ID
+            if (button !== null) // Check if the button is not null
+                button.style.borderBottomColor = "#33c71b"; // Set the bottom border color
         }
     }
 }

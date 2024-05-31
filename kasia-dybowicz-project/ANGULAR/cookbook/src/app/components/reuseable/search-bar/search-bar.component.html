@@ -3,16 +3,17 @@
         <form class="search__form" [formGroup]="searchForm">
             <ul>
                 <li>
+                    <!-- Search input field bound to the title form control -->
                     <input id="search"
                            placeholder="type here"
                            type="text" formControlName="title"
                            aria-label="Search input field"/>
                 </li>
-<!--                <label for="search">Search</label>-->
-
+                <!-- Button to search by title -->
                 <li>
                     <button class="search-button" (click)="searchTitle()">Search by Title</button>
                 </li>
+                <!-- Button to search by ingredient -->
                 <li>
                     <button class="search-button" (click)="searchIng()">Search by Ingredient</button>
                 </li>
@@ -20,7 +21,7 @@
         </form>
     </div>
     <div class="search__bar__add">
-        <!--  <app-blue-medium-button [typeButtonText]="blueButtonText" (buttonOutput)="searching(searchInput)" aria-label="Random button"></app-blue-medium-button>-->
+        <!-- Add recipe button, visible only for ADMIN users -->
         <app-blue-medium-button
                 [typeButtonText]="addRecipeText"
                 (buttonOutput)="addRecipe()"

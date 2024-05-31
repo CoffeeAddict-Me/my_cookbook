@@ -1,18 +1,18 @@
-import {Component, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {MatDialog} from "@angular/material/dialog";
-import {ConfirmDialogComponent} from "../confirm-dialog/confirm-dialog.component";
-import {Recipe} from "../../services/models/recipe.model";
-import {NewuserService} from "../../services/services/newuser.service";
-import {FavouritesService} from "../../services/services/favourites.service";
+import {Component, Inject} from '@angular/core'; // Import Component and Inject from Angular core
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog"; // Import MAT_DIALOG_DATA and MatDialogRef from Angular Material dialog
+import {MatDialog} from "@angular/material/dialog"; // Import MatDialog from Angular Material dialog
+import {ConfirmDialogComponent} from "../confirm-dialog/confirm-dialog.component"; // Import ConfirmDialogComponent
+import {Recipe} from "../../services/models/recipe.model"; // Import Recipe model
+import {NewuserService} from "../../services/services/newuser.service"; // Import NewuserService
+import {FavouritesService} from "../../services/services/favourites.service"; // Import FavouritesService
 
 @Component({
-    selector: 'app-recipe-detail-modal',
-    templateUrl: './recipe-detail-modal.component.html',
-    styleUrl: './recipe-detail-modal.component.scss'
+    selector: 'app-recipe-detail-modal', // Define the selector for the component
+    templateUrl: './recipe-detail-modal.component.html', // Define the template URL
+    styleUrl: './recipe-detail-modal.component.scss' // Define the style URL
 })
 export class RecipeDetailModalComponent {
-    recipe: Recipe = {
+    recipe: Recipe = { // Initialize recipe with default values
         recipeId: 0,
         title: "",
         ingredient: "",
@@ -22,50 +22,44 @@ export class RecipeDetailModalComponent {
         photoUrl: "",
     };
 
-    title: any;
-    method: any;
-    ing: any;
-    photoUrl: any;
-    activeUser: any;
-    printButton: string = "Print";
+    title: any; // Initialize title
+    method: any; // Initialize method
+    ing: any; // Initialize ing
+    photoUrl: any; // Initialize photoUrl
+    activeUser: any; // Initialize activeUser
+    printButton: string = "Print"; // Initialize printButton
 
-    constructor(@Inject(
-                    MAT_DIALOG_DATA) public data: any,
-                private newUserService: NewuserService,
-                private favouritesService: FavouritesService,) {
-        this.recipe = data.recipe;
-        this.ing = data.splitIngredients;
-        this.method = data.splitMethods;
-        this.title = data.title;
-        this.photoUrl = data.photoUrl;
-        console.log(this.title);
-        console.log(this.photoUrl)
-        console.log("Ingredients " + Object.values(this.ing))
-
+    constructor(@Inject(MAT_DIALOG_DATA) public data: any, // Inject MAT_DIALOG_DATA into the component
+                private newUserService: NewuserService, // Inject NewuserService into the component
+                private favouritesService: FavouritesService) { // Inject FavouritesService into the component
+        this.recipe = data.recipe; // Assign recipe from data
+        this.ing = data.splitIngredients; // Assign splitIngredients from data
+        this.method = data.splitMethods; // Assign splitMethods from data
+        this.title = data.title; // Assign title from data
+        this.photoUrl = data.photoUrl; // Assign photoUrl from data
+        console.log(this.title); // Log title
+        console.log(this.photoUrl); // Log photoUrl
+        console.log("Ingredients " + Object.values(this.ing)); // Log ingredients
     }
 
-    favouriteRecipeCheck(): boolean {
-        return true
+    favouriteRecipeCheck(): boolean { // Method to check if recipe is favourite
+        return true; // Return true
     }
 
-    onCheckboxChange(event: any, recipeId: number) {
-        if (event.target.checked) {
-            this.favouritesService.addToFavourites(this.activeUser.userId, recipeId)
-        } else {
-            this.favouritesService.removeFromFavourites(this.activeUser.userId, recipeId)
+    onCheckboxChange(event: any, recipeId: number) { // Method to handle checkbox change
+        if (event.target.checked) { // Check if checkbox is checked
+            this.favouritesService.addToFavourites(this.activeUser.userId, recipeId); // Add to favourites
+        } else { // If checkbox is unchecked
+            this.favouritesService.removeFromFavourites(this.activeUser.userId, recipeId); // Remove from favourites
         }
     }
 
-    //print the recipe logic
-    printRecipe() {
-        //open new window and print window - because I know how to print a whole window
-        let printWindow = window.open('', '_blank');
-        // formatting of the details of the recipe
-        let ingredientsPrint: string = this.ing.join('<br>')
-        let methodsPrint: string = this.method.join('<br>')
-        let titlePrint: string = this.title
-        printWindow?.document.open();
-        //mockup html for the printer so the printed page looks nice with css styling included
+    printRecipe() { // Method to print recipe
+        let printWindow = window.open('', '_blank'); // Open new window
+        let ingredientsPrint: string = this.ing.join('<br>'); // Join ingredients with line breaks
+        let methodsPrint: string = this.method.join('<br>'); // Join methods with line breaks
+        let titlePrint: string = this.title; // Assign title to titlePrint
+        printWindow?.document.open(); // Open document in print window
         printWindow?.document.write(`<html>
         <head>
           <title>${titlePrint}</title>
@@ -77,8 +71,7 @@ export class RecipeDetailModalComponent {
           <h4 style="font-family: Poppins, sans-serif">Method</h4>
           <div style="font-family: Poppins, sans-serif">${methodsPrint}</div>
         </body>
-      </html>`);
-        printWindow?.document.close();
-
+      </html>`); // Write HTML content for printing
+        printWindow?.document.close(); // Close document in print window
     }
 }

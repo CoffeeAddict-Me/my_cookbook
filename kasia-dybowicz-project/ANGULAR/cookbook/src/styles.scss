@@ -1,18 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  margin: 0px;
+  margin: 0px; /* Remove default margin from body */
 }
 
 .cdk-overlay-pane {
-  position: fixed !important;
-  top: 0 !important;
-  left: 10vw !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-width: 0 !important;
+  position: fixed !important; /* Fix the position of the overlay pane */
+  top: 0 !important; /* Set the top position to 0 */
+  left: 10vw !important; /* Set the left position to 10% of the viewport width */
+  right: 0 !important; /* Set the right position to 0 */
+  bottom: 0 !important; /* Set the bottom position to 0 */
+  display: flex !important; /* Use flexbox for layout */
+  align-items: center !important; /* Center items vertically */
+  justify-content: center !important; /* Center items horizontally */
+  min-width: 0 !important; /* Set the minimum width to 0 */
 }
-
-

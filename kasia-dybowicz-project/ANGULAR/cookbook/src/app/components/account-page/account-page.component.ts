@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {Router} from "@angular/router";
-import {UserDetails} from "../../services/models/user.model";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {NewuserService} from "../../services/services/newuser.service";
-import {HttpErrorResponse} from "@angular/common/http";
-import {MatDialog} from "@angular/material/dialog";
-import {ConfirmDialogComponent} from "../../modals/confirm-dialog/confirm-dialog.component";
-import {RecipeService} from "../../services/services/recipe.service";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from "@angular/router";
+import { UserDetails } from "../../services/models/user.model";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NewuserService } from "../../services/services/newuser.service";
+import { HttpErrorResponse } from "@angular/common/http";
+import { MatDialog } from "@angular/material/dialog";
+import { ConfirmDialogComponent } from "../../modals/confirm-dialog/confirm-dialog.component";
+import { RecipeService } from "../../services/services/recipe.service";
 
 @Component({
     selector: 'app-account-page',
@@ -15,13 +15,13 @@ import {RecipeService} from "../../services/services/recipe.service";
 })
 export class AccountPageComponent {
 
-    //strings for the HTML initialization
+    // Strings for initializing HTML bindings
     inputName: string | null = ''
     inputUsername: string | null = ''
     inputEmail: string | null = ''
     blueButtonText = "Edit"
 
-//Initialize active user
+    // Initialize active user with default values
     activeUser: UserDetails = {
         userId: 0,
         username: "",
@@ -30,12 +30,13 @@ export class AccountPageComponent {
         password: "",
         role: ""
     };
-//form group initialized
+
+    // Form group for editing user details
     editForm: FormGroup = new FormGroup({});
     editUserDetails = false;
 
-
-    @Output() output = new EventEmitter<boolean>
+    // Event emitter for outputting data
+    @Output() output = new EventEmitter<boolean>;
 
     constructor(
         private recipeService: RecipeService,
@@ -43,27 +44,27 @@ export class AccountPageComponent {
         private fb: FormBuilder,
         private userService: NewuserService,
         private dialog: MatDialog
-    ) {
-    }
+    ) {}
 
+    // Lifecycle hook to initialize component data
     ngOnInit() {
         const userJson = sessionStorage.getItem('activeUser');
-        if (userJson) { // This checks for both null and empty string, but not explicitly for undefined
+        if (userJson) { // Check for user data in session storage
             try {
                 this.activeUser = JSON.parse(userJson);
-                this.formWithUserData();
+                this.formWithUserData(); // Initialize form with user data
             } catch (e) {
                 console.error("Error parsing user JSON", e);
                 // Handle error or initialize activeUser with a default state
             }
         }
 
-        this.inputName = this.activeUser.name
-        this.inputUsername = this.activeUser.username
-        this.inputEmail = this.activeUser.email
+        this.inputName = this.activeUser.name;
+        this.inputUsername = this.activeUser.username;
+        this.inputEmail = this.activeUser.email;
     }
 
-    //need to initialize the form with user data
+    // Initialize the form with user data
     formWithUserData() {
         this.editForm = this.fb.group({
             name: [this.activeUser.name, [Validators.required, Validators.minLength(2)]],
@@ -71,10 +72,12 @@ export class AccountPageComponent {
         });
     }
 
+    // Method to enable edit mode
     editPlease() {
         this.editUserDetails = true;
     }
 
+    // Method to handle user data update
     editUser() {
         if (this.editForm.valid) {
             // Update only the fields that can change
@@ -86,6 +89,7 @@ export class AccountPageComponent {
                 email: formValues.email
             };
 
+            // Call service to update user details
             this.userService.updateUser(this.activeUser.userId, updatedUser).subscribe({
                 next: (response: UserDetails) => {
                     // Update session storage with new user details
@@ -98,71 +102,46 @@ export class AccountPageComponent {
                     alert(error.message);
                 }
             });
-            location.reload()
+            location.reload(); // Reload the page to reflect changes
         } else {
             console.log('Form is not valid');
         }
     }
 
+    // Method to handle user deletion
     deleteUser() {
-        const dialogRef =
-            this.dialog.open(ConfirmDialogComponent, {
-                width: '300px',
-                height: '500px'
-            });
+        const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+            width: '300px',
+            height: '500px'
+        });
 
         dialogRef.afterClosed().subscribe(async (result) => {
             if (result) {
-
-                this.clearRecipes()
-                setTimeout(() => this.deletion(), 2000)
-
-
-                // const step1 = () => {
-                //   return new Promise<void>((resolve, reject) => {
-                //     this.clearRecipes();
-                //     resolve();
-                //     reject(Error("There was an error clearing the recipes"));
-                //   })
-                // }
-                // const step2 = () => {
-                //   return new Promise<void>((resolve, reject) => {
-                //     this.deletion();
-                //     resolve();
-                //     reject(Error("There was an error deleting the user"));
-                //   })
-                // }
-                // const steps = async () => {
-                //   try {
-                //     await step1();
-                //     await step2();
-                //   } catch (error) {
-                //     console.error("Error occurred while deleting user or recipes ", error )
-                //   }
-                // }
-                //
-                // steps()
-
+                // Clear user recipes before deletion
+                this.clearRecipes();
+                setTimeout(() => this.deletion(), 2000); // Delay to ensure recipes are cleared
             } else {
                 console.log('User deletion cancelled');
             }
         });
     }
 
+    // Method to clear user's favorite recipes
     clearRecipes() {
         this.userService.removeAllFavouriteRecipesByUserId(this.activeUser.userId).subscribe({
             next: (response) => {
-                console.log("All favourites removed", response)
+                console.log("All favourites removed", response);
             }
-        })
+        });
     }
 
+    // Method to delete user
     deletion() {
         this.userService.deleteUser(this.activeUser.userId).subscribe({
             next: (response) => {
                 console.log('User deleted successfully', response);
-                sessionStorage.clear();
-                // boot deleted user to landing
+                sessionStorage.clear(); // Clear session storage
+                // Navigate to landing page
                 this.router.navigate(['/landing']);
             },
             error: (error) => {
@@ -172,5 +151,3 @@ export class AccountPageComponent {
         });
     }
 }
-
-

@@ -1,41 +1,43 @@
 <div class="nav__bar">
     <div class="nav">
-    <nav class="menu">
-        <span>Menu</span>
-        <div class="menu-dropdown">
-            <div>
-                <button (click)="navigateHome()" aria-label="Home" id="homeId">Home</button>
+        <nav class="menu">
+            <span>Menu</span> <!-- Menu label -->
+            <div class="menu-dropdown">
+                <div>
+                    <!-- Home button with click event -->
+                    <button (click)="navigateHome()" aria-label="Home" id="homeId">Home</button>
+                </div>
+                <div>
+                    <!-- About button with click event -->
+                    <button (click)="navigateAbout()" aria-label="About" id="aboutId">About us</button>
+                </div>
+                <div>
+                    <!-- Favourites button with click event -->
+                    <button (click)="navigateFavourites()" aria-label="Your favourites" id="favouritesId">Your favourites</button>
+                </div>
+                <div>
+                    <!-- Shopping List button with click event -->
+                    <button (click)="navigateShoppingList()" aria-label="Shopping List" id="shoppingId">Shopping List</button>
+                </div>
+                <div>
+                    <!-- Account button with click event -->
+                    <button (click)="navigateAccount()" aria-label="Your account" id="accountId">Your account</button>
+                </div>
+                <div>
+                    <!-- Log out button with click event -->
+                    <button (click)="logoutUser()" aria-label="Log out">LOG OUT</button>
+                </div>
             </div>
-            <div>
-                <button (click)="navigateAbout()" aria-label="About" id="aboutId">About us</button>
-            </div>
-            <div>
-                <button (click)="navigateFavourites()" aria-label="Your favourites" id="favouritesId">Your favourites
-                </button>
-            </div>
-            <div>
-                <button (click)="navigateShoppingList()" aria-label="Shopping List" id="shoppingId">Shopping List
-                </button>
-            </div>
-            <div>
-                <button (click)="navigateAccount()" aria-label="Your account" id="accountId">Your account</button>
-            </div>
-            <!--  this switch emulates a different user logged in, it will be removed once users are available-->
-
-            <div>
-                <button (click)="logoutUser()" aria-label="Log out">LOG OUT</button>
-            </div>
+        </nav>
+        <div class="logo">
+            <h6>Cooking&nbsp;up&nbsp;a&nbsp;feast</h6> <!-- Logo text -->
         </div>
-    </nav>
-    <div class="logo">
-        <h6>Cooking&nbsp;up&nbsp;a&nbsp;feast</h6>
     </div>
 </div>
-</div>
 <div class="top-bar">
-    <app-search-bar></app-search-bar>
+    <app-search-bar></app-search-bar> <!-- Search bar component -->
     <div class="credentials">
-        <p class="welcomeMessage">Welcome {{ userName }}</p>
-        <img class="image-of-user" src="{{userImage}}" aria-label="Image of logged in user"/>
+        <p class="welcomeMessage">Welcome {{ userName }}</p> <!-- Welcome message with user name -->
+        <img class="image-of-user" src="{{userImage}}" aria-label="Image of logged in user"/> <!-- User image -->
     </div>
 </div>

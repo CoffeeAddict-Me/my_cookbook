@@ -1,34 +1,36 @@
-<h2>{{ title }}</h2>
+<h2>{{ title }}</h2> <!-- Recipe title -->
 <label class="heart-checkbox">
+    <!-- Favourite checkbox -->
     <input type="checkbox" hidden [checked]="favouriteRecipeCheck()"
            (change)="onCheckboxChange($event, recipe.recipeId)">
     <span>&#x2764;</span> <!-- Unicode heart symbol -->
 </label>
 <div class="ingredients_and_photo">
     <div class="recipe_photo">
-        <img [src]="photoUrl" aria-label="Photo of the dish">
+        <img [src]="photoUrl" aria-label="Photo of the dish"> <!-- Recipe photo -->
     </div>
     <div class="ingredients"><b>INGREDIENTS:</b>
         <ul>
+            <!-- List of ingredients -->
             <li *ngFor="let ingredient of ing">{{ ingredient }}</li>
         </ul>
     </div>
-
-
 </div>
 
 <div class="methods"><b>METHODS:</b>
     <ol>
+        <!-- List of methods -->
         <li *ngFor="let methodItem of method">{{ methodItem }}</li>
     </ol>
 </div>
 
 <div class="buttons">
+    <!-- Print button component -->
     <app-blue-small-button
             [typeButtonText]="printButton"
             (buttonOutput)="printRecipe()"
             aria-label="Print button"></app-blue-small-button>
+    <!-- Close button -->
     <button id="close-btn" mat-button [mat-dialog-close]="true">Close</button>
 </div>
-
 

@@ -1,12 +1,14 @@
 <div class="background">
     <div class="wrapping">
         <div class="buttons">
-            <!--  typeButtonText(text on the button) and buttonOutput (Output function) are from the child generic button-->
+            <!-- Login button, using a custom component with text and click event -->
             <app-green-big-button [typeButtonText]="logintext" (buttonOutput)="loginClicked()" class="loginButton"
                                   aria-label="Log in button"></app-green-big-button>
+            <!-- Signup button, using a custom component with text and click event -->
             <app-green-big-button [typeButtonText]="signuptext" (buttonOutput)="signupClicked()" class="signupButton"
                                   aria-label="Sign up button"></app-green-big-button>
         </div>
     </div>
 </div>
+<!-- Placeholder for routing views -->
 <router-outlet></router-outlet>

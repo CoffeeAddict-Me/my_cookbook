@@ -1,24 +1,27 @@
-<!--navigation and search bar-->
+<!-- Navigation and search bar -->
 <app-navigation-bar></app-navigation-bar>
 
-<!--shopping list elements-->
+<!-- Shopping list elements -->
 <div class="background" aria-label="Background photo of spoons with spices">
     <div class="display">
         <div class="shopping-list">
-            <h3>This is a handy shopping list</h3>
+            <h3>This is a handy shopping list</h3> <!-- Shopping list title -->
+            <!-- Shopping list form component with event binding -->
             <app-list-form (awesomeOutput)="parentFunction($event)"></app-list-form>
+            <!-- Display added items if arrayOfStuff is not empty -->
             <div class="stuff__listed" *ngIf="arrayOfStuff !== ['']">
-
+                <!-- Loop through arrayOfStuff and display each item -->
                 <div *ngFor="let stuffToAdd of arrayOfStuff" id="listToPrint"
                      aria-label="Display of added items to shopping list">
-                    <p class="listedItems">{{ stuffToAdd }}</p>
+                    <p class="listedItems">{{ stuffToAdd }}</p> <!-- Display each item -->
                 </div>
-
                 <p class="note">once done adding all your shopping, please press GO to print your list</p>
                 <div class="buttons">
+                    <!-- Reset button, using a custom component with text and click event -->
                     <app-red-small-button
                             [typeButtonText]="buttonReset"
                             (buttonOutput)="resetList()" aria-label="Reset button"></app-red-small-button>
+                    <!-- Done button, using a custom component with text and click event -->
                     <app-green-small-button
                             [typeButtonText]="buttonGo"
                             (buttonOutput)="doneAdding()" aria-label="Done button"></app-green-small-button>

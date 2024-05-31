@@ -1,8 +1,11 @@
 <div class="shopping-list">
     <div class="input-list">
+        <!-- Label for the input field -->
         <label for="shopping"></label><br/>
+        <!-- Input field for shopping list, bound to stuffToAdd variable -->
         <input id="shopping" name="shopping" type="text" [(ngModel)]="stuffToAdd"
                aria-label="input field for shopping list"/>
+        <!-- Add button, using a custom component with text and click event -->
         <app-green-small-button
                 [typeButtonText]="buttonAdd"
                 (buttonOutput)="addStuff(stuffToAdd)" aria-label="Add button"></app-green-small-button>

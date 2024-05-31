@@ -1,24 +1,23 @@
-import {Component, Inject} from '@angular/core';
-import {Recipe} from "../../services/models/recipe.model";
-import {RecipeDetailModalComponent} from "../recipe-detail-modal/recipe-detail-modal.component";
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {RecipeEditModalComponent} from "../recipe-edit-modal/recipe-edit-modal.component";
-import {NewuserService} from "../../services/services/newuser.service";
-import {UserDetails} from "../../services/models/user.model";
-import {FavouritesService} from "../../services/services/favourites.service";
-
+import {Component, Inject} from '@angular/core'; // Import Component and Inject from Angular core
+import {Recipe} from "../../services/models/recipe.model"; // Import Recipe model
+import {RecipeDetailModalComponent} from "../recipe-detail-modal/recipe-detail-modal.component"; // Import RecipeDetailModalComponent
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog"; // Import MAT_DIALOG_DATA, MatDialog, and MatDialogRef from Angular Material dialog
+import {RecipeEditModalComponent} from "../recipe-edit-modal/recipe-edit-modal.component"; // Import RecipeEditModalComponent
+import {NewuserService} from "../../services/services/newuser.service"; // Import NewuserService
+import {UserDetails} from "../../services/models/user.model"; // Import UserDetails model
+import {FavouritesService} from "../../services/services/favourites.service"; // Import FavouritesService
 
 @Component({
-    selector: 'app-search-results',
-    templateUrl: './search-results.component.html',
-    styleUrl: './search-results.component.scss'
+    selector: 'app-search-results', // Define the selector for the component
+    templateUrl: './search-results.component.html', // Define the template URL
+    styleUrl: './search-results.component.scss' // Define the style URL
 })
 export class SearchResultsComponent {
 
-    searchResults = this.data.searchResult;
-    userId = 0;
+    searchResults = this.data.searchResult; // Initialize searchResults from data
+    userId = 0; // Initialize userId
 
-    activeUser: UserDetails = {
+    activeUser: UserDetails = { // Initialize activeUser with default values
         userId: 0,
         username: "",
         name: "",
@@ -27,7 +26,7 @@ export class SearchResultsComponent {
         role: ""
     };
 
-    recipe: Recipe = {
+    recipe: Recipe = { // Initialize recipe with default values
         recipeId: 0,
         title: "",
         ingredient: "",
@@ -37,70 +36,65 @@ export class SearchResultsComponent {
         photoUrl: "",
     };
 
-    splitIngredients: string[] = [];
-    splitMethods: string[] = [];
-    selectedRecipe?: Recipe;
-    favouriteRecipes: Recipe[] = [];
+    splitIngredients: string[] = []; // Initialize splitIngredients as an empty array
+    splitMethods: string[] = []; // Initialize splitMethods as an empty array
+    selectedRecipe?: Recipe; // Initialize selectedRecipe as optional Recipe
+    favouriteRecipes: Recipe[] = []; // Initialize favouriteRecipes as an empty array
 
-    ngOnInit() {
-        const userJson = sessionStorage.getItem('activeUser');
-        if (userJson) { // This checks for both null and empty string, but not explicitly for undefined
+    ngOnInit() { // Lifecycle hook for initialization
+        const userJson = sessionStorage.getItem('activeUser'); // Get activeUser from sessionStorage
+        if (userJson) { // Check if userJson exists
             try {
-                this.activeUser = JSON.parse(userJson);
+                this.activeUser = JSON.parse(userJson); // Parse userJson and assign to activeUser
             } catch (e) {
-                console.error("Error parsing user JSON", e);
+                console.error("Error parsing user JSON", e); // Log error if parsing fails
             }
         }
-        this.userId = this.activeUser.userId
-        console.log("this is my stored id " + this.activeUser.userId);
-        //getting all favourite recipes
-        this.newUserService.getAllFavouriteRecipesByUserId(this.activeUser.userId).subscribe({
-            next: (response: Recipe[]) => {
-                this.favouriteRecipes = response;
-                //calling method to check if recipes were favourite to style the hearts
-                this.favouriteRecipeCheck(this.recipe.recipeId);
+        this.userId = this.activeUser.userId; // Assign userId from activeUser
+        console.log("this is my stored id " + this.activeUser.userId); // Log userId
+        this.newUserService.getAllFavouriteRecipesByUserId(this.activeUser.userId).subscribe({ // Get all favourite recipes by userId
+            next: (response: Recipe[]) => { // Handle successful response
+                this.favouriteRecipes = response; // Assign response to favouriteRecipes
+                this.favouriteRecipeCheck(this.recipe.recipeId); // Call favouriteRecipeCheck method
             }
         });
     }
 
     constructor(
-        private newUserService: NewuserService,
-        private favouritesService: FavouritesService,
-        private dialog: MatDialog,
-        public dialogRef: MatDialogRef<RecipeEditModalComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: any
-    ) {
-    }
+        private newUserService: NewuserService, // Inject NewuserService into the component
+        private favouritesService: FavouritesService, // Inject FavouritesService into the component
+        private dialog: MatDialog, // Inject MatDialog into the component
+        public dialogRef: MatDialogRef<RecipeEditModalComponent>, // Inject MatDialogRef into the component
+        @Inject(MAT_DIALOG_DATA) public data: any // Inject MAT_DIALOG_DATA into the component
+    ) {}
 
-
-    onSelect(recipe: Recipe) {
-        this.selectedRecipe = recipe;
-        this.splitIngredients = recipe.ingredient.split(';').map(ingredient => ingredient.trim())
-        this.splitMethods = recipe.method.split(';').map(method => method.trim())
-        let dialogRef = this.dialog.open(RecipeDetailModalComponent, {
+    onSelect(recipe: Recipe) { // Method to select a recipe
+        this.selectedRecipe = recipe; // Assign selected recipe
+        this.splitIngredients = recipe.ingredient.split(';').map(ingredient => ingredient.trim()); // Split and trim ingredients
+        this.splitMethods = recipe.method.split(';').map(method => method.trim()); // Split and trim methods
+        let dialogRef = this.dialog.open(RecipeDetailModalComponent, { // Open RecipeDetailModalComponent dialog
             height: 'auto',
             width: '100vw',
             data: {
-                selectedRecipe: this.selectedRecipe,
-                splitIngredients: this.splitIngredients,
-                splitMethods: this.splitMethods,
-                title: this.selectedRecipe.title,
-                photoUrl: this.selectedRecipe.photoUrl
+                selectedRecipe: this.selectedRecipe, // Pass selectedRecipe to dialog
+                splitIngredients: this.splitIngredients, // Pass splitIngredients to dialog
+                splitMethods: this.splitMethods, // Pass splitMethods to dialog
+                title: this.selectedRecipe.title, // Pass title to dialog
+                photoUrl: this.selectedRecipe.photoUrl // Pass photoUrl to dialog
             }
-        })
-        console.log("selected recipe: " + this.selectedRecipe.title)
+        });
+        console.log("selected recipe: " + this.selectedRecipe.title); // Log selected recipe title
     }
 
-    favouriteRecipeCheck(recipeId: number): boolean {
-        return this.favouriteRecipes.some(favRecipe => favRecipe.recipeId === recipeId);
+    favouriteRecipeCheck(recipeId: number): boolean { // Method to check if recipe is favourite
+        return this.favouriteRecipes.some(favRecipe => favRecipe.recipeId === recipeId); // Return true if recipe is in favouriteRecipes
     }
 
-// add and remove function depending on the checking of the input element in html - moved to service for ease of use
-    onCheckboxChange(event: any, recipeId: number) {
-        if (event.target.checked) {
-            this.favouritesService.addToFavourites(this.activeUser.userId, recipeId)
-        } else {
-            this.favouritesService.removeFromFavourites(this.activeUser.userId, recipeId)
+    onCheckboxChange(event: any, recipeId: number) { // Method to handle checkbox change
+        if (event.target.checked) { // Check if checkbox is checked
+            this.favouritesService.addToFavourites(this.activeUser.userId, recipeId); // Add to favourites
+        } else { // If checkbox is unchecked
+            this.favouritesService.removeFromFavourites(this.activeUser.userId, recipeId); // Remove from favourites
         }
     }
 }

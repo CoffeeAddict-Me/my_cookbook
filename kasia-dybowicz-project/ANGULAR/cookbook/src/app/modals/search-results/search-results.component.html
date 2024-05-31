@@ -1,35 +1,32 @@
 <div class="recipe-card">
     <table>
-        <tr> <!-- first row with heading -->
+        <tr> <!-- First row with heading -->
             <th></th>
-            <th>Recipe title</th>
-            <th>Recipe type</th>
-            <th class="hide-me">Difficulty</th>
+            <th>Recipe title</th> <!-- Recipe title header -->
+            <th>Recipe type</th> <!-- Recipe type header -->
+            <th class="hide-me">Difficulty</th> <!-- Difficulty header with hide-me class -->
             <th></th>
-            <!--      <th></th>-->
-            <!--      <th></th>-->
         </tr>
-        <!--    this lists all of the recipes in the array I have, more elegant but I do not want them all-->
-        <tr *ngFor="let recipe of searchResults"> <!-- table data row -->
+        <!-- This lists all of the recipes in the array searchResults -->
+        <tr *ngFor="let recipe of searchResults"> <!-- Table data row for each recipe -->
             <td (click)="onSelect(recipe)" class="clickable">
-                <div class="recipe_photo"><img [src]="recipe.photoUrl"></div>
+                <div class="recipe_photo"><img [src]="recipe.photoUrl"></div> <!-- Recipe photo -->
             </td>
-            <td (click)="onSelect(recipe)" class="clickable">{{ recipe.title }}</td>
-            <td (click)="onSelect(recipe)" class="clickable">{{ recipe.cuisine }}</td>
-            <td (click)="onSelect(recipe)" class="clickable" id="hide-me-content">{{ recipe.difficulty }}</td>
+            <td (click)="onSelect(recipe)" class="clickable">{{ recipe.title }}</td> <!-- Recipe title -->
+            <td (click)="onSelect(recipe)" class="clickable">{{ recipe.cuisine }}</td> <!-- Recipe cuisine -->
+            <td (click)="onSelect(recipe)" class="clickable" id="hide-me-content">{{ recipe.difficulty }}</td> <!-- Recipe difficulty -->
             <td>
                 <label class="heart-checkbox">
+                    <!-- Favourite checkbox -->
                     <input type="checkbox" hidden [checked]="favouriteRecipeCheck(recipe.recipeId)"
                            (change)="onCheckboxChange($event, recipe.recipeId)">
                     <span>&#x2764;</span> <!-- Unicode heart symbol -->
                 </label>
             </td>
-            <!--      <td><button (click)="editRecipe(recipe)" class="edit-button">Edit</button></td>-->
-            <!--      <td><button (click)="deleteRecipe(recipe)" class="delete-button">Delete</button></td>-->
         </tr>
     </table>
 </div>
 <div class="buttons">
+    <!-- Close button -->
     <button mat-button [mat-dialog-close]="false" class="cancel">Close</button>
 </div>
-

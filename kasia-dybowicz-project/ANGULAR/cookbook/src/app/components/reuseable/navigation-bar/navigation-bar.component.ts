@@ -1,18 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
-import {UserDetails} from "../../../services/models/user.model";
-import {NavigationService} from "../../../services/services/navigation.service";
+import {Component, OnInit} from '@angular/core'; // Import Component and OnInit from Angular core
+import {Router} from "@angular/router"; // Import Router from Angular router
+import {UserDetails} from "../../../services/models/user.model"; // Import UserDetails model
+import {NavigationService} from "../../../services/services/navigation.service"; // Import NavigationService
 
 @Component({
-    selector: 'app-navigation-bar',
-    templateUrl: './navigation-bar.component.html',
-    styleUrl: './navigation-bar.component.scss'
+    selector: 'app-navigation-bar', // Define the selector for the component
+    templateUrl: './navigation-bar.component.html', // Define the template URL
+    styleUrl: './navigation-bar.component.scss' // Define the style URL
 })
 export class NavigationBarComponent implements OnInit {
 
-    userName: string | null = '';
-    userImage: string | null = '';
-    activeUser: UserDetails = {
+    userName: string | null = ''; // Define userName property
+    userImage: string | null = ''; // Define userImage property
+    activeUser: UserDetails = { // Initialize activeUser with default values
         userId: 0,
         username: "",
         name: "",
@@ -21,61 +21,59 @@ export class NavigationBarComponent implements OnInit {
         role: ""
     };
 
-    navigateService: NavigationService = new NavigationService();
+    navigateService: NavigationService = new NavigationService(); // Initialize NavigationService
 
-    constructor(private router: Router,
+    constructor(private router: Router, // Inject Router into the component
     ) {
     }
 
-    ngOnInit(): void {
-        const userJson = sessionStorage.getItem('activeUser');
-        if (userJson) {
+    ngOnInit(): void { // Implement OnInit interface
+        const userJson = sessionStorage.getItem('activeUser'); // Get activeUser from sessionStorage
+        if (userJson) { // Check if userJson exists
             try {
-                this.activeUser = JSON.parse(userJson);
+                this.activeUser = JSON.parse(userJson); // Parse userJson and assign to activeUser
             } catch (e) {
-                console.error("Error parsing user JSON", e);
+                console.error("Error parsing user JSON", e); // Log error if parsing fails
             }
         }
-        this.userName = this.activeUser.name
+        this.userName = this.activeUser.name // Set userName from activeUser
 
-        this.navigateService.buttonsFormatting()
+        this.navigateService.buttonsFormatting() // Call buttonsFormatting method from NavigationService
     }
 
-//logout function that clears the stored session and navigates to landing page
-    logoutUser() {
-        sessionStorage.clear();
-        this.router.navigate(['/landing'])
+    logoutUser() { // Method to log out user
+        sessionStorage.clear(); // Clear sessionStorage
+        this.router.navigate(['/landing']) // Navigate to landing page
     }
 
-    //just some routing for the buttons
-    navigateHome() {
-        this.router.navigate(['/home'])
-        this.userName = this.activeUser.name
+    navigateHome() { // Method to navigate to home page
+        this.router.navigate(['/home']) // Navigate to home page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
-    navigateAbout() {
-        this.router.navigate(['/about'])
-        this.userName = this.activeUser.name
+    navigateAbout() { // Method to navigate to about page
+        this.router.navigate(['/about']) // Navigate to about page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
-    navigateFavourites() {
-        this.router.navigate(['/fave'])
-        this.userName = this.activeUser.name
+    navigateFavourites() { // Method to navigate to favourites page
+        this.router.navigate(['/fave']) // Navigate to favourites page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
-    navigateShoppingList() {
-        this.router.navigate(['/list'])
-        this.userName = this.activeUser.name
+    navigateShoppingList() { // Method to navigate to shopping list page
+        this.router.navigate(['/list']) // Navigate to shopping list page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
-    navigateSingUp() {
-        this.router.navigate(['/add'])
-        this.userName = this.activeUser.name
+    navigateSingUp() { // Method to navigate to sign-up page
+        this.router.navigate(['/add']) // Navigate to sign-up page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
-    navigateAccount() {
-        this.router.navigate(['/account']);
-        this.userName = this.activeUser.name
+    navigateAccount() { // Method to navigate to account page
+        this.router.navigate(['/account']); // Navigate to account page
+        this.userName = this.activeUser.name // Set userName from activeUser
     }
 
 }

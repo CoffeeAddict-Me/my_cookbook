@@ -1,34 +1,33 @@
-<!--login form component for input of details-->
-
+<!-- Login form component for input of details -->
 <div class="background">
     <div class="wrapping">
         <div class="app-div">
-            <h1>Log into your account</h1>
-            <h2>To proceed you need to log into your account</h2>
+            <h1>Log into your account</h1> <!-- Main heading -->
+            <h2>To proceed you need to log into your account</h2> <!-- Subheading -->
             <div class="login__form">
                 <form class="form__container" [formGroup]="loginForm" (ngSubmit)="login()">
-                    <!--username field-->
+                    <!-- Username field -->
                     <div class="form__field">
                         <label for="username">Username</label><br/>
                         <input id="username" type="text" placeholder="Type your username here"
                                formControlName="username"
                                aria-label="Username field"/>
                     </div>
-                    <!--password field-->
+                    <!-- Password field -->
                     <div class="form__field">
                         <label for="password">Password</label><br/>
                         <input id="password" type="password" autocomplete="current-password"
                                placeholder="What is your password?" formControlName="password"
                                aria-label="Password field"/>
-
-                        <!--        if form is invalid it will spill an error, but it will not distinguish which one is incorrect-->
+                        <!-- Error message if the form is invalid -->
                         <div *ngIf="loginForm.invalid && loginForm.controls['password'].dirty && loginForm.controls['username'].dirty">
                             <p class="passError">Please provide valid username and password</p>
                         </div>
                     </div>
-                    <!--green button-->
+                    <!-- Log in button -->
                     <button [disabled]="!loginForm.valid" type="submit" aria-label="Log in button">LOG IN</button>
                 </form>
+                <!-- No account section -->
                 <div class="no_account">
                     <p class="goto_sign_up">If you do not have an account do not despair, you can create one <a
                             routerLink="/signup">here</a></p>
@@ -36,7 +35,6 @@
             </div>
         </div>
     </div>
-
 </div>
+<!-- Placeholder for routing views -->
 <router-outlet></router-outlet>
-

@@ -1,26 +1,26 @@
-import {Component} from '@angular/core';
-import {Router} from "@angular/router";
-import {Recipe} from "../../services/models/recipe.model";
-import {UserDetails} from "../../services/models/user.model";
-import {NewuserService} from "../../services/services/newuser.service";
-import {MatDialog} from "@angular/material/dialog";
-import {RecipeDetailModalComponent} from "../../modals/recipe-detail-modal/recipe-detail-modal.component";
-import {RecipeEditModalComponent} from "../../modals/recipe-edit-modal/recipe-edit-modal.component";
-import {HttpErrorResponse} from "@angular/common/http";
-import {RecipeDeleteModalComponent} from "../../modals/recipe-delete-modal/recipe-delete-modal.component";
-import {RecipeService} from "../../services/services/recipe.service";
+import { Component } from '@angular/core';
+import { Router } from "@angular/router";
+import { Recipe } from "../../services/models/recipe.model";
+import { UserDetails } from "../../services/models/user.model";
+import { NewuserService } from "../../services/services/newuser.service";
+import { MatDialog } from "@angular/material/dialog";
+import { RecipeDetailModalComponent } from "../../modals/recipe-detail-modal/recipe-detail-modal.component";
+import { RecipeEditModalComponent } from "../../modals/recipe-edit-modal/recipe-edit-modal.component";
+import { HttpErrorResponse } from "@angular/common/http";
+import { RecipeDeleteModalComponent } from "../../modals/recipe-delete-modal/recipe-delete-modal.component";
+import { RecipeService } from "../../services/services/recipe.service";
 
 @Component({
-    selector: 'app-favourite-page',
-    templateUrl: './favourite-page.component.html',
-    styleUrl: './favourite-page.component.scss'
+    selector: 'app-favourite-page', // Component selector
+    templateUrl: './favourite-page.component.html', // Path to component template
+    styleUrl: './favourite-page.component.scss' // Path to component styles
 })
 export class FavouritePageComponent {
-    favouriteRecipes: Recipe[] = [];
-    splitIngredients: string[] = [];
-    splitMethods: string[] = [];
-    selectedRecipe?: Recipe;
-    recipeToEdit?: Recipe;
+    favouriteRecipes: Recipe[] = []; // Array to store favourite recipes
+    splitIngredients: string[] = []; // Array to store split ingredients
+    splitMethods: string[] = []; // Array to store split methods
+    selectedRecipe?: Recipe; // Selected recipe for detail view
+    recipeToEdit?: Recipe; // Recipe to edit
 
     recipe: Recipe = {
         recipeId: 0,
@@ -30,7 +30,7 @@ export class FavouritePageComponent {
         cuisine: "",
         difficulty: "",
         photoUrl: "",
-    };
+    }; // Default recipe object
     activeUser: UserDetails = {
         userId: 0,
         username: "",
@@ -38,17 +38,18 @@ export class FavouritePageComponent {
         email: "",
         password: "",
         role: ""
-    };
-    userId = 0;
-    private updatedRecipe: any;
-    isSortedAlphabetically: boolean = false;
-    isSortedByType: boolean = false;
-    isSortedByDifficulty: boolean = false;
+    }; // Default user object
+    userId = 0; // User ID
+    private updatedRecipe: any; // Variable to store updated recipe
+    isSortedAlphabetically: boolean = false; // Flag for sorting alphabetically
+    isSortedByType: boolean = false; // Flag for sorting by type
+    isSortedByDifficulty: boolean = false; // Flag for sorting by difficulty
 
+    // Lifecycle hook to initialize component
     ngOnInit() {
         const userJson = sessionStorage.getItem('activeUser');
         console.log("userId from storage " + this.activeUser.userId)
-        if (userJson) { // This checks for both null and empty string, but not explicitly for undefined
+        if (userJson) { // Check for user data in session storage
             try {
                 this.activeUser = JSON.parse(userJson);
             } catch (e) {
@@ -58,7 +59,7 @@ export class FavouritePageComponent {
         this.userId = this.activeUser.userId
         console.log("userId from storage " + this.activeUser.userId)
 
-
+        // Fetch favourite recipes for the user
         this.newUserService.getAllFavouriteRecipesByUserId(this.userId).subscribe({
             next: (response: Recipe[]) => {
                 console.log("userId is " + this.userId)
@@ -70,13 +71,13 @@ export class FavouritePageComponent {
     }
 
     constructor(
-        private randomRouter: Router,
-        private recipeService: RecipeService,
-        private newUserService: NewuserService,
-        private dialog: MatDialog,
-    ) {
-    }
+        private randomRouter: Router, // Router for navigation
+        private recipeService: RecipeService, // Service for recipe operations
+        private newUserService: NewuserService, // Service for user operations
+        private dialog: MatDialog, // Dialog service for modals
+    ) {}
 
+    // Method to handle recipe selection
     onSelect(recipe: Recipe) {
         this.selectedRecipe = recipe;
         this.splitIngredients = recipe.ingredient.split(';').map(ingredient => ingredient.trim())
@@ -95,12 +96,11 @@ export class FavouritePageComponent {
         console.log("selected recipe: " + this.selectedRecipe.title)
     }
 
+    // Method to handle recipe editing
     editRecipe(recipe: Recipe) {
         console.log("Opening edit dialog for recipe:", recipe);
         this.recipeToEdit = recipe;
         console.log("reassigning recipe:", this.recipeToEdit);
-        // this.splitIngredients = recipe.ingredient.split(';').map(ingredient => ingredient.trim())
-        // this.splitMethods = recipe.method.split(';').map(method => method.trim())
         let dialogRef = this.dialog.open(RecipeEditModalComponent, {
             height: 'auto',
             width: '100vw',
@@ -133,11 +133,11 @@ export class FavouritePageComponent {
             } else {
                 console.log('Recipe edit cancelled');
             }
-
         })
         console.log("Parent id: " + this.recipeToEdit.recipeId + " type " + typeof (this.recipeToEdit.recipeId))
     }
 
+    // Method to handle recipe deletion
     deleteRecipe(recipe: Recipe) {
         const dialogRef = this.dialog.open(RecipeDeleteModalComponent, {
             width: '300px',
@@ -160,7 +160,7 @@ export class FavouritePageComponent {
         })
     }
 
-
+    // Method to clear filters and reload all recipes
     clear() {
         const radios = document.getElementsByName('filter');
         radios.forEach((radio) => {
@@ -175,7 +175,7 @@ export class FavouritePageComponent {
         })
     }
 
-
+    // Method to remove recipe from favourites
     remove(recipe: Recipe): void {
         console.log(recipe.recipeId);
 
@@ -190,6 +190,7 @@ export class FavouritePageComponent {
         location.reload();
     }
 
+    // Method to sort recipes by title
     sortByTitle(): void {
         if (this.isSortedAlphabetically) {
             // Sort ascending
@@ -202,6 +203,7 @@ export class FavouritePageComponent {
         this.isSortedAlphabetically = !this.isSortedAlphabetically;
     }
 
+    // Method to sort recipes by cuisine type
     sortByType() {
         if (this.isSortedByType) {
             // Sort ascending
@@ -214,6 +216,7 @@ export class FavouritePageComponent {
         this.isSortedByType = !this.isSortedByType
     }
 
+    // Method to sort recipes by difficulty
     sortByDifficulty() {
         if (this.isSortedByDifficulty) {
             // Sort ascending
@@ -225,105 +228,4 @@ export class FavouritePageComponent {
         // Toggle the sort order for next click
         this.isSortedByDifficulty = !this.isSortedByDifficulty
     }
-
-    // //FILTER FUNCTION
-    // filter(value: string){
-    //   if (value === 'basic') {
-    //     console.log("Basic was selected");
-    //     this.recipeService.searchRecipesByDifficulty('basic').subscribe({
-    //       next: (response: Recipe[]) => {
-    //         if (response && response.length > 0) { // Check if response is not null and has elements
-    //           this.favouriteRecipes = response;
-    //         } else {
-    //           alert("No recipes found for the selected difficulty.");
-    //         }
-    //       },
-    //       error: (err) => {
-    //         console.error('Error fetching recipes:', err);
-    //         // Optionally handle errors, such as network issues, here
-    //       }
-    //     });
-    //
-    //
-    //   } else if (value ==='easy'){
-    //     console.log("Easy was selected")
-    //     this.recipeService.searchRecipesByDifficulty('Easy').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='intermediate'){
-    //     console.log("Intermediate was selected")
-    //     this.recipeService.searchRecipesByDifficulty('Intermediate').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='difficult'){
-    //     console.log("Difficult was selected")
-    //     this.recipeService.searchRecipesByDifficulty('Difficult').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='cocktail'){
-    //     console.log("Cocktail was selected")
-    //     this.recipeService.searchRecipesByCuisine('Cocktail').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='american'){
-    //     console.log("American was selected")
-    //     this.recipeService.searchRecipesByCuisine('breakfast').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='australian'){
-    //     console.log("Australian was selected")
-    //     this.recipeService.searchRecipesByCuisine('healthy').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='asian'){
-    //     console.log("Asian was selected")
-    //     this.recipeService.searchRecipesByCuisine('asian').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='irish'){
-    //     console.log("Irish was selected")
-    //     this.recipeService.searchRecipesByCuisine('dinner').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    //
-    //   else if (value ==='dessert'){
-    //     console.log("Dessert was selected")
-    //     this.recipeService.searchRecipesByCuisine('dessert').subscribe({
-    //       next: (response: Recipe []) => {
-    //         this.favouriteRecipes = response;
-    //       }
-    //     })
-    //   }
-    // }
 }
