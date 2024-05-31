@@ -1,0 +1,71 @@
+<h2 mat-dialog-title style="color: #088f04; font-size: larger; font-family: 'Poppins SemiBold'">{{ title }}</h2>
+
+<div class="table">
+    <form class="editing" [formGroup]="editForm">
+        <table>
+            <tr>
+                <td>Title</td>
+                <td>
+                    <textarea id="title" type="text" formControlName="title" placeholder="{{title}}"></textarea>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Ingredients</td>
+                <td>
+                    <textarea id="ingredient" type="text" formControlName="ingredient" placeholder="{{ing}}"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Methods</td>
+                <td>
+                    <textarea id="method" type="text" formControlName="method" placeholder="{{method}}"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>
+                    <textarea id="photoUrl" type="text" formControlName="photoUrl"
+                              placeholder="{{photoUrl}}"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Cuisine</td>
+                <td>
+                    <!--            <textarea id="cuisine" type="text" formControlName="cuisine" placeholder="{{cuisine}}"></textarea>-->
+                    <select id="cuisine" formControlName="cuisine">
+                        <option value="Cocktail">Cocktail</option>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Healthy">Healthy</option>
+                        <option value="Asian">Asian</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Dessert">Dessert</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Difficulty</td>
+                <td>
+                    <!--            <textarea id="difficulty" type="text" formControlName="difficulty" placeholder="{{difficulty}}"></textarea>-->
+                    <select id="difficulty" formControlName="difficulty">
+                        <option value="Basic">Basic</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Difficult">Difficult</option>
+                    </select>
+                </td>
+            </tr>
+
+        </table>
+        <div class="buttons">
+            <button (click)="editRecipe()" mat-button class="save">Save</button>
+            <button mat-button mat-button mat-dialog-close class="cancel">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<!--need a form with buttons to add extra ingredients and extra methods-->

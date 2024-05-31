@@ -1,0 +1,123 @@
+<!--<app-notfound-page></app-notfound-page>-->
+<app-navigation-bar></app-navigation-bar>
+
+<div class="background">
+    <div class="display">
+
+        <div class="user_details">
+            <h2>Your account</h2>
+            <!--   displays current user details -->
+            <div class="table">
+                <div class="table-row">
+                    <div class="first-column">
+                        <p><b>Name:</b></p>
+                    </div>
+                    <div class="second-column">
+                        <p>{{ inputName }}</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="first-column">
+                        <p><b>Username:</b></p>
+                    </div>
+                    <div class="second-column">
+                        <p>{{ inputUsername }}</p>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="first-column">
+                        <p><b>Email:</b></p>
+                    </div>
+                    <div class="second-column">
+                        <p>{{ inputEmail }}</p>
+                    </div>
+                </div>
+            </div>
+            <app-blue-small-button [typeButtonText]="blueButtonText" (click)="editPlease()"></app-blue-small-button>
+
+            <!--add ng if statement here to show table only after button was pressed-->
+            <div class="edit_details" *ngIf="editUserDetails">
+                <form class="form__container" [formGroup]="editForm" (ngSubmit)="editUser()">
+
+
+                    <div class="table">
+                        <div class="table-row">
+                            <div class="first-column">
+                                <p><b>Name:</b></p>
+                            </div>
+                            <div class="second-column">
+                                <input id="name" type="text" placeholder="{{inputName}}" formControlName="name"
+                                       aria-label="Name input field"/>
+                                <div *ngIf="editForm.controls['name'].invalid && editForm.controls['name'].dirty">
+                                    <p class="userError">Your name is required and it must contain at least two
+                                        letters</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="table-row">
+                            <div class="first-column">
+                                <p><b>Email:</b></p>
+                            </div>
+                            <div class="second-column">
+                                <input id="email" type="email" placeholder="{{inputEmail}}" formControlName="email"
+                                       aria-label="E-mail input field"/>
+                                <!--        if the email is omitted it will spill an error-->
+                                <div *ngIf="editForm.controls['email'].invalid && editForm.controls['email'].dirty">
+                                    <p class="userError">Please provide your valid email address</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        <!--            <tr>-->
+                        <!--              <td>Username:</td>-->
+                        <!--              <td><input userId="username"-->
+                        <!--                         type="text"-->
+                        <!--                         placeholder="{{inputUsername}}"-->
+                        <!--                         formControlName="username"-->
+                        <!--                         aria-label="Username input field"/>-->
+                        <!--                &lt;!&ndash;        if the username is omitted it will spill an error&ndash;&gt;-->
+                        <!--                <div *ngIf="editForm.controls['username'].invalid && editForm.controls['username'].dirty">-->
+                        <!--                  <p class = "userError">Username is required, and it has to contain at least 6 letters, <br>please chose another username</p>-->
+                        <!--                </div></td>-->
+                        <!--            </tr>-->
+
+
+
+                        <!--            <tr>-->
+                        <!--              <td>Password:</td>-->
+                        <!--              <td><input id="password" type="password" placeholder="Update your password" formControlName="password" aria-label="Password input field"/>-->
+                        <!--                &lt;!&ndash;        if the password is omitted it will spill an error&ndash;&gt;-->
+                        <!--                <div *ngIf="editForm.controls['password'].invalid && editForm.controls['password'].dirty">-->
+                        <!--                  <p class = "userError">Sorry your password must contain:<br>-->
+                        <!--                    at least 8 characters, an upper and lower case letter,<br>-->
+                        <!--                    a symbol, a number, a hieroglyph, a musical note,<br>-->
+                        <!--                    a haiku, a feather of a phoenix, and a drop of unicorn blood...<br>-->
+                        <!--                    ...if that didn't work, try typing two characters.</p>-->
+                        <!--                </div></td>-->
+                        <!--            </tr>-->
+
+                    <button [disabled]="!editForm.valid" type="submit" class="submit">Submit</button>
+
+                </form>
+            </div>
+
+            <div class="delete-user">
+                <p>If you would like to delete your account permanenty, click the button below</p>
+
+                <button (click)="deleteUser()" class="delete">Delete Account</button>
+            </div>
+            <!--      <tr>-->
+            <!--        <td>Image:</td>-->
+            <!--        <td>-->
+            <!--          <img class="image of user" src="{{inputImage}}" aria-label="Image of logged in user"/>-->
+            <!--        </td>-->
+            <!--        <td><button>edit</button></td>-->
+            <!--      </tr>-->
+
+        </div>
+    </div>
+</div>

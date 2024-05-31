@@ -1,0 +1,75 @@
+
+app-navigation-bar {
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  top: 0;
+  z-index: 3;
+  width: 100vw;
+}
+
+@media screen and (max-width: 1000px) {
+  h3 {
+    padding-top: 15rem;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  h3 {
+    padding-top: 9rem;
+  }
+
+  .shopping-list {
+    min-width: 200px;
+  }
+
+  .listedItems {
+    min-width: 400px;
+  }
+}
+
+.background {
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.display {
+  width: 80vw;
+  background-color: white;
+}
+
+.shopping-list {
+  background-color: white;
+  border: thin grey;
+  margin: auto;
+  width: 60vw;
+  font-family: Poppins, sans-serif;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+.listedItems {
+  background-color: #e0e0e0;
+  border-bottom: solid thin darkgray;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 1rem;
+}
+
+
+
+
+

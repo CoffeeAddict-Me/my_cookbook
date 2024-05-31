@@ -1,0 +1,112 @@
+// this is the image and the website title banner formatting
+
+@import "./navigation-bar-component-full.scss";
+@import "./navigation-bar-component-small";
+
+.nav__bar {
+  padding-bottom: 1rem;
+  border-bottom: solid thin darkgrey;
+  width: 100vw;
+  background-color: white;
+  z-index: 3;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.logo {
+  height: 30px;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+h6 {
+  font-family: Poppins Thin, sans-serif;
+  font-size: 1rem;
+  margin-top: 0.7rem;
+  margin-left: 0.3rem;
+  margin-right: 3vw;
+
+}
+
+// this is the navbar formatting
+
+//overall navbar div
+
+  // all navbar is constructed from styled buttons
+  button {
+    background-color: white;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    height: 2rem;
+    width: 8.5rem;
+    font-family: Poppins, sans-serif;
+    border-bottom: .21rem solid transparent;
+  }
+
+  button:hover {
+    color: black;
+    border-bottom: .21rem solid #33c71b;
+    transition: width .6s;
+  }
+
+  .menu-dropdown {
+    z-index: 5;
+  }
+
+  .menu {
+    z-index: 5;
+  }
+
+//styling of the header - nav bar and search bar
+
+.top-bar {
+  display: flex;
+  flex-direction: row;
+  justify-items: flex-end;
+  background-color: white;
+  z-index: 2;
+}
+
+app-search-bar {
+  margin-top: 2rem;
+  flex-grow: 1;
+  background-color: white;
+  z-index: 2;
+}
+
+.welcomeMessage {
+  padding-top: 1rem;
+  font-family: Poppins, sans-serif;
+  background-color: white;
+}
+
+img {
+  height: 3rem;
+  border-radius: 1.5rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+}
+
+.credentials {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  background-color: white;
+}
+
+.image-of-user {
+  display: none;
+}
+
+
+
+

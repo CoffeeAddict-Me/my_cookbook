@@ -1,0 +1,54 @@
+.save {
+  background-color: #33c71b;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  margin-left: 5vw;
+}
+
+.save:hover {
+  background-color: #088f04;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10vh;
+}
+
+.cancel {
+  background-color: #ff66ad;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  margin-left: 1vw;
+}
+
+.cancel:hover {
+  background-color: #f8028e;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+
+@media screen and (min-width: 1001px) {
+  h2 {
+    padding-top: 9rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+h2 {
+  padding-top: 15rem;
+}
+}

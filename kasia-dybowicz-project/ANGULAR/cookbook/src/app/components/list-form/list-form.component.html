@@ -1,0 +1,10 @@
+<div class="shopping-list">
+    <div class="input-list">
+        <label for="shopping"></label><br/>
+        <input id="shopping" name="shopping" type="text" [(ngModel)]="stuffToAdd"
+               aria-label="input field for shopping list"/>
+        <app-green-small-button
+                [typeButtonText]="buttonAdd"
+                (buttonOutput)="addStuff(stuffToAdd)" aria-label="Add button"></app-green-small-button>
+    </div>
+</div>

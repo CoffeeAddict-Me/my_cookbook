@@ -1,0 +1,138 @@
+@import "./favoirite-page-small";
+@import "./favourite-page-full";
+
+app-navigation-bar {
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  top: 0;
+}
+
+.background {
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: Poppins, sans-serif;
+  text-align: left;
+  width: 100%;
+  background-color: white;
+}
+
+tr:hover {
+  background-color: #dddddd;
+
+}
+
+.filter {
+  font-family: Poppins, sans-serif;
+}
+
+th, td {
+  border-bottom: solid 1px #ddd;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 5vw;
+}
+
+.recipe_photo {
+  width: 5vw;
+  height: 7.5vh;
+  overflow: hidden;
+}
+
+.recipe_photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.display {
+  //width: 78%;
+  background-color: white;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.display-list {
+width: 100%;
+  background-color: white;
+}
+
+.display-filter {
+  margin-top: 10vh;
+  border-left: silver thin;
+  margin-left: 2rem;
+  flex: 1;
+}
+
+h2 {
+  font-family: Poppins, sans-serif;
+}
+
+td {
+  font-family: Poppins, sans-serif;
+  text-align: left;
+  vertical-align: center;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.boldMe {
+  font-size: larger;
+}
+
+
+th, td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 5vw;
+}
+
+tr {
+  border-bottom: solid 1px #ddd;;
+}
+
+.clear {
+  margin-top: 1rem;
+}
+.edit-image, .delete-image {
+  width: auto;
+  cursor: pointer;
+  margin-left: 1rem;
+  z-index: 0;
+}
+
+.annotation {
+  position: relative;
+  display: inline-block;
+}
+
+.note {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  padding: 0 3px 0 3px;
+  z-index: 1;
+}
+.annotation:hover .note {
+  display: block;
+}
+
+app-navigation-bar {
+  z-index: 3;
+}

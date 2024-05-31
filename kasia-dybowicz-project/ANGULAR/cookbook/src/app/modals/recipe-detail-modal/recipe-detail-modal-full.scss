@@ -1,0 +1,26 @@
+@media screen and (min-width: 1001px) {
+  h2 {
+    padding-top: 9rem;
+  }
+
+  .ingredients_and_photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .recipe_photo {
+    width: 70vw;
+    height: auto;
+    max-width: 1300px;
+    overflow: hidden;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .recipe_photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}

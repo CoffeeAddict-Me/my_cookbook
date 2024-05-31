@@ -1,0 +1,200 @@
+@media screen and (min-width: 1001px) {
+  .recipe-card {
+    padding-top: 9rem;
+  }
+
+  .recipe_photo {
+    width: 5vw;
+    height: 7.5vh;
+    overflow: hidden;
+  }
+
+  .recipe_photo img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  table {
+    width: 100%;
+  }
+}
+
+;
+
+@media screen and (max-width: 1000px) {
+  .recipe-card {
+    padding-top: 15rem;
+  }
+
+  .recipe_photo {
+    display: none;
+  }
+
+  .recipe_photo img {
+    display: none;
+  }
+
+  table {
+    font-size: small;
+    width: 100%;
+  }
+
+  .hide-me {
+    display: none;
+  }
+
+  #hide-me-content {
+    display: none;
+  }
+}
+
+
+
+
+table {
+  border-collapse: collapse;
+  font-family: Poppins, sans-serif;
+  text-align: left;
+}
+
+tr:hover {
+  background-color: #dddddd;
+}
+
+th, td {
+  border-bottom: solid 1px #ddd;
+  padding: 1rem;
+}
+
+.recipe-card {
+  background-color: white;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+
+//heart button
+
+.heart-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.heart-button:before,
+.heart-button:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 25px;
+  height: 40px;
+  border-radius: 15px 15px 0 0;
+  background-color: lavenderblush;
+}
+
+.heart-button:before {
+  left: 25px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart-button:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.heart-button.active:before,
+.heart-button.active:after {
+  background-color: #f8028e; /* Change to your desired color */
+  //background-image: linear-gradient(to bottom, hotpink, lightpink);
+}
+
+
+.edit-button {
+  background-color: #72f0fc;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+}
+
+.edit-button:hover {
+  background-color: #16d3f5;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+
+.delete-button {
+  background-color: #ff66ad;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+}
+
+.delete-button:hover {
+  background-color: #f8028e;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+
+/*      CHECKBOX         */
+.heart-checkbox {
+  font-size: 2rem; /* Adjust size as needed */
+  text-shadow: 0px 2px 5px darkgrey;
+}
+
+.heart-checkbox input[type="checkbox"] {
+  display: none; /* Hide the checkbox */
+}
+
+.heart-checkbox span {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: lightgray; /* Default heart color */
+}
+
+.heart-checkbox input[type="checkbox"]:checked + span {
+  color: #f8028e; /* Color when checked */
+}
+
+.buttons {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10vh;
+  margin-bottom: 1rem;
+}
+
+.cancel {
+  background-color: #ff66ad;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  margin-left: 1vw;
+}
+
+.cancel:hover {
+  background-color: #f8028e;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}

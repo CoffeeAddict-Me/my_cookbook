@@ -1,0 +1,136 @@
+<app-navigation-bar></app-navigation-bar>
+<div class="background">
+    <div class="display">
+        <div class="display-list">
+            <h2>Your favourite recipes</h2>
+            <table>
+                <tr> <!-- first row with heading -->
+                    <th></th>
+                    <th (click)="sortByTitle()" class="clickable">Recipe title
+                        <span [ngStyle]="{'color': isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
+                        <span [ngStyle]="{'color': !isSortedAlphabetically ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    </th>
+                    <th (click)="sortByType()" class="clickable">Recipe type
+                        <span [ngStyle]="{'color': isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
+                        <span [ngStyle]="{'color': !isSortedByType ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    </th>
+                    <th (click)="sortByDifficulty()" class="clickable">Difficulty
+                        <span [ngStyle]="{'color': isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11165;</span>
+                        <span [ngStyle]="{'color': !isSortedByDifficulty ? '#16d3f5' : 'darkgrey'}">&#11167;</span>
+                    </th>
+                    <th></th>
+
+                </tr>
+                <!--    this lists all of the recipes in the array I have, more elegant but I do not want them all-->
+                <tr *ngFor="let recipe of favouriteRecipes"> <!-- table data row -->
+                    <td (click)="onSelect(recipe)" class="clickable">
+                        <div class="recipe_photo"><img [src]="recipe.photoUrl" alt="photo of a dish"></div>
+                    </td>
+                    <td (click)="onSelect(recipe)" class="clickable">{{ recipe.title }}</td>
+                    <td (click)="onSelect(recipe)" class="clickable">{{ recipe.cuisine }}</td>
+                    <td (click)="onSelect(recipe)" class="clickable">{{ recipe.difficulty }}</td>
+                    <td>
+                        <div class="icons">
+                            <div class="annotation">
+                                <img class="dislike-image" src="assets/Photos/cancel.png"
+                                     (click)="remove(recipe)">
+<!--                                <button (click)="remove(recipe)" class="x-button"></button>-->
+                                <div class="note">
+                                    <p>Remove recipe from favourites</p>
+                                </div>
+                            </div>
+                            <div class="annotation">
+                                <img class="edit-image" src="assets/Photos/edit.png"
+                                     *ngIf="this.activeUser.role==='ADMIN'"
+                                     (click)="editRecipe(recipe)">
+                                <div class="note">
+                                    <p>Edit recipe</p>
+                                </div>
+                            </div>
+                            <div class="annotation">
+                                <img class="delete-image" src="assets/Photos/garbage-bin.png"
+                                     *ngIf="this.activeUser.role==='ADMIN'" (click)="deleteRecipe(recipe)">
+                                <div class="note">
+                                    <p>Delete recipe</p>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <!--    </div>-->
+            <!--        <div class="display-filter">-->
+
+            <!--            <div class="filter">-->
+            <!--                <h3>Filter</h3>-->
+            <!--                <h4>Difficulty</h4>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="basic"-->
+            <!--                       (change)="filter('basic')"/>-->
+            <!--                <label>Basic</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="easy"-->
+            <!--                       (change)="filter('easy')"/>-->
+            <!--                <label>Easy</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="intermediate"-->
+            <!--                       (change)="filter('intermediate')"/>-->
+            <!--                <label>Intermediate</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="difficult"-->
+            <!--                       (change)="filter('difficult')"/>-->
+            <!--                <label>Difficult</label><br/>-->
+
+
+            <!--                <h4>Recipe type</h4>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="cocktail"-->
+            <!--                       (change)="filter('cocktail')"/>-->
+            <!--                <label>Cocktail</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="breakfast"-->
+            <!--                       (change)="filter('breakfast')"/>-->
+            <!--                <label>Breakfast</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="healthy"-->
+            <!--                       (change)="filter('healthy')"/>-->
+            <!--                <label>Healthy</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="asian"-->
+            <!--                       (change)="filter('asian')"/>-->
+            <!--                <label>Asian</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="dinner"-->
+            <!--                       (change)="filter('dinner')"/>-->
+            <!--                <label>Dinner</label><br/>-->
+
+            <!--                <input name="filter"-->
+            <!--                       type="radio"-->
+            <!--                       value="dessert"-->
+            <!--                       (change)="filter('dessert')"/>-->
+            <!--                <label>Dessert</label><br/>-->
+            <!--                <button class="clear" (click)="clear()">Clear</button>-->
+            <!--        </div>-->
+        </div>
+
+
+    </div>
+</div>

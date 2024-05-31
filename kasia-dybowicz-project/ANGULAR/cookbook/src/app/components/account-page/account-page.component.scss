@@ -1,0 +1,91 @@
+.background {
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.display {
+  background-color: white;
+  margin-inline: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 80vw;
+  height: 100vh;
+}
+
+.user_details {
+  width: 60vw;
+  margin: auto;
+}
+
+
+@media screen and (max-width: 1000px) {
+  p, label, input {
+    font-size: smaller;
+  }
+}
+
+@media screen and (min-width: 1001px) {
+  .table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .first-column {
+    width: 10rem;
+  }
+
+}
+
+h2, p, label, input {
+  font-family: Poppins, sans-serif;
+}
+
+.boldMe {
+  font-size: larger;
+}
+
+.submit {
+  margin-top: 1rem;
+  background-color: #33c71b;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+}
+
+.submit:hover {
+  background-color: #088f04;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.delete {
+  background-color: #FF66ADFF;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  }
+
+.delete:hover {
+  background-color: #f8028e;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.delete-user {
+  padding-top: 5rem;
+  font-family: Poppins, sans-serif;
+  padding-bottom: 2rem;
+}
+

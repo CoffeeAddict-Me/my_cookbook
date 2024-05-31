@@ -1,0 +1,16 @@
+@media screen and (max-width: 1000px) {
+  .search-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search__bar__search {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+  }
+}

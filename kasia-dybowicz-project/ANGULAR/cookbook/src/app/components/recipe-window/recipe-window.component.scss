@@ -1,0 +1,139 @@
+@import "./recipe-window-component-full";
+//@import "./recipe-window-component-medium";
+@import "./recipe-window-component-small";
+
+table {
+  border-collapse: collapse;
+  font-family: Poppins, sans-serif;
+  text-align: left;
+  width: 100%;
+}
+
+tr:hover {
+  background-color: #dddddd;
+}
+
+th, td {
+  font-size: smaller;
+  border-bottom: solid 1px #ddd;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 5vw;
+}
+
+.recipe_photo {
+  width: 5vw;
+  height: 7.5vh;
+  overflow: hidden;
+}
+
+.recipe_photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: row;
+  font-family: Poppins, sans-serif;
+  flex-shrink: 1;
+}
+
+.recipe-card {
+  width: 100vw;
+}
+
+.filter {
+  span {
+    background-color: #33c71b;
+    border-color: #e0e0e0;
+    border-radius: 1rem;
+    box-shadow: black 1px 1px 5px;
+    font-family: Poppins, sans-serif;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    z-index: 1;
+  }
+
+  font-family: Poppins, sans-serif;
+  margin-left: 5vw;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #e0e0e0;
+  min-width: 160px;
+  box-shadow: 0 3px 6px 0 silver;
+  padding: 5px 5px;
+  z-index: 1;
+}
+
+.filter:hover .dropdown-content {
+  display: block;
+}
+
+.clear {
+  margin-top: 1rem;
+  background-color: #72f0fc;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+}
+
+.edit-image, .delete-image {
+  width: auto;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.annotation {
+  position: relative;
+  display: inline-block;
+}
+
+.note {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  padding: 0 3px 0 3px;
+  z-index: 1;
+}
+
+.annotation:hover .note {
+  display: block;
+}
+
+
+/*      CHECKBOX         */
+.heart-checkbox {
+  font-size: 2rem; /* Adjust size as needed */
+  text-shadow: 0px 2px 5px darkgrey;
+}
+
+.heart-checkbox input[type="checkbox"] {
+  display: none; /* Hide the checkbox */
+}
+
+.heart-checkbox span {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: lightgray; /* Default heart color */
+}
+
+.heart-checkbox input[type="checkbox"]:checked + span {
+  color: #f8028e; /* Color when checked */
+}
+
+
+

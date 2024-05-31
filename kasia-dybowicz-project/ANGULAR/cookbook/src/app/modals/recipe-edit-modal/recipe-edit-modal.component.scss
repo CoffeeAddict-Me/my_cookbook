@@ -1,0 +1,89 @@
+#method {
+  width: 60vw;
+  height: 10rem;
+  margin-top: 2rem;
+}
+
+#ingredient {
+  width: 60vw;
+  height: 10rem;
+  margin-top: 2rem;
+}
+
+#photoUrl {
+  width: 60vw;
+  height: 2rem;
+  margin-top: 2rem;
+}
+
+#title {
+  width: 60vw;
+  height: 2rem;
+  margin-top: 2rem;
+}
+
+textarea {
+  font-family: Poppins;
+}
+
+td, tr {
+  font-family: Poppins;
+  font-size: 0.9rem;
+}
+
+.save {
+  background-color: #33c71b;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  margin-left: 60vw;
+}
+
+.save:hover {
+  background-color: #088f04;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.cancel {
+  background-color: #ff66ad;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  margin-left: -50vw;
+}
+
+.cancel:hover {
+  background-color: #f8028e;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.table {
+  padding-left: 3rem;
+}
+
+@media screen and (min-width: 1001px) {
+  h2 {
+    padding-top: 9rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  h2 {
+    padding-top: 15rem;
+  }
+}

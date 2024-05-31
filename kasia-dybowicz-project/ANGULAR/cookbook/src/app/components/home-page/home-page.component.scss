@@ -1,0 +1,24 @@
+@import "./home-page-component-full.scss";
+@import "./home-page-small.scss";
+
+.main_pic {
+width: 100vw;
+}
+
+h2, p {
+  font-family: Poppins, sans-serif;
+  margin-left: 5vw;
+}
+
+
+.footer {
+  font-size: small;
+}
+
+app-navigation-bar {
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  top: 0;
+  z-index: 3;
+}

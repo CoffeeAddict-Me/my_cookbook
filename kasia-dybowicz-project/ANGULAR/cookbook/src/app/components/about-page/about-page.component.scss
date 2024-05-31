@@ -1,0 +1,30 @@
+@import "./about-page-full";
+@import "./about-page-small";
+
+app-navigation-bar {
+  position: fixed;
+  overflow: hidden;
+  background-color: white;
+  top: 0;
+}
+
+.background {
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about {
+  margin: auto;
+  background-color: white;
+  width: 80vw;
+  height: 100vh;
+  padding: 3vh 2vw 1rem;
+
+  p, h3 {
+    font-family: Poppins, sans-serif;
+  }
+}

@@ -1,0 +1,12 @@
+@media screen and (min-width: 451px){
+  th, td {
+    font-size: smaller !important;
+  }
+  .edit-image, .delete-image {
+    height: 3vh !important;
+  }
+
+  .delete-image {
+    margin-right: 1rem;
+  }
+}

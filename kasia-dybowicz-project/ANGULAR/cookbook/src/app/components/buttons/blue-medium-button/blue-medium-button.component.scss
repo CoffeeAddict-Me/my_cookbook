@@ -1,0 +1,16 @@
+button {
+  background-color: #72f0fc;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0px 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 15rem;
+}
+
+button:hover {
+  background-color: #16d3f5;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}

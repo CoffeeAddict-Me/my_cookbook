@@ -1,0 +1,26 @@
+@media screen and (min-width: 1000px) {
+  th, td {
+    font-size: initial !important;
+    vertical-align: bottom;
+  }
+  .edit-image, .delete-image, .dislike-image {
+    height: 2rem !important;
+  }
+
+  .delete-image {
+    margin-right: 1rem;
+  }
+  .icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+  }
+
+  .background {
+    margin-top: 9rem;
+  }
+  .display {
+    width: 78%;
+  }
+}

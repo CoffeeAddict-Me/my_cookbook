@@ -1,0 +1,12 @@
+<div class="background">
+    <div class="wrapping">
+        <div class="buttons">
+            <!--  typeButtonText(text on the button) and buttonOutput (Output function) are from the child generic button-->
+            <app-green-big-button [typeButtonText]="logintext" (buttonOutput)="loginClicked()" class="loginButton"
+                                  aria-label="Log in button"></app-green-big-button>
+            <app-green-big-button [typeButtonText]="signuptext" (buttonOutput)="signupClicked()" class="signupButton"
+                                  aria-label="Sign up button"></app-green-big-button>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

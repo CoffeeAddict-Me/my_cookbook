@@ -1,0 +1,30 @@
+<div class="search-bar">
+    <div class="search__bar__search">
+        <form class="search__form" [formGroup]="searchForm">
+            <ul>
+                <li>
+                    <input id="search"
+                           placeholder="type here"
+                           type="text" formControlName="title"
+                           aria-label="Search input field"/>
+                </li>
+<!--                <label for="search">Search</label>-->
+
+                <li>
+                    <button class="search-button" (click)="searchTitle()">Search by Title</button>
+                </li>
+                <li>
+                    <button class="search-button" (click)="searchIng()">Search by Ingredient</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="search__bar__add">
+        <!--  <app-blue-medium-button [typeButtonText]="blueButtonText" (buttonOutput)="searching(searchInput)" aria-label="Random button"></app-blue-medium-button>-->
+        <app-blue-medium-button
+                [typeButtonText]="addRecipeText"
+                (buttonOutput)="addRecipe()"
+                *ngIf="this.activeUser.role==='ADMIN'"
+                aria-label="Add recipe button"></app-blue-medium-button>
+    </div>
+</div>

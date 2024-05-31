@@ -1,0 +1,41 @@
+<div class="nav__bar">
+    <div class="nav">
+    <nav class="menu">
+        <span>Menu</span>
+        <div class="menu-dropdown">
+            <div>
+                <button (click)="navigateHome()" aria-label="Home" id="homeId">Home</button>
+            </div>
+            <div>
+                <button (click)="navigateAbout()" aria-label="About" id="aboutId">About us</button>
+            </div>
+            <div>
+                <button (click)="navigateFavourites()" aria-label="Your favourites" id="favouritesId">Your favourites
+                </button>
+            </div>
+            <div>
+                <button (click)="navigateShoppingList()" aria-label="Shopping List" id="shoppingId">Shopping List
+                </button>
+            </div>
+            <div>
+                <button (click)="navigateAccount()" aria-label="Your account" id="accountId">Your account</button>
+            </div>
+            <!--  this switch emulates a different user logged in, it will be removed once users are available-->
+
+            <div>
+                <button (click)="logoutUser()" aria-label="Log out">LOG OUT</button>
+            </div>
+        </div>
+    </nav>
+    <div class="logo">
+        <h6>Cooking&nbsp;up&nbsp;a&nbsp;feast</h6>
+    </div>
+</div>
+</div>
+<div class="top-bar">
+    <app-search-bar></app-search-bar>
+    <div class="credentials">
+        <p class="welcomeMessage">Welcome {{ userName }}</p>
+        <img class="image-of-user" src="{{userImage}}" aria-label="Image of logged in user"/>
+    </div>
+</div>

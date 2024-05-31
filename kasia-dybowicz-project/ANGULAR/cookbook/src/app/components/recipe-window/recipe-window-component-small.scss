@@ -1,0 +1,22 @@
+@media screen and (max-width: 1000px){
+  .recipe_photo {
+    display: none;
+  }
+  .recipe_photo img {
+    display: none;
+  }
+
+  .icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+  }
+
+  .edit-image, .delete-image {
+    height: 2em;
+    margin-right: 0.7rem;
+    margin-bottom: 1rem;
+  }
+
+}

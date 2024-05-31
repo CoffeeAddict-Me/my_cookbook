@@ -1,0 +1,28 @@
+
+.background {
+  position: absolute;
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+.wrapping {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+  height: 80vh;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+app-green-big-button {
+  margin: 10px;
+}
+

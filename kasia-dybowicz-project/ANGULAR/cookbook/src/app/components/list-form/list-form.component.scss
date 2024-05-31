@@ -1,0 +1,26 @@
+.shopping-list {
+  font-family: Poppins, sans-serif;
+
+}
+
+.input-list {
+  display: flex;
+  flex-direction: row;
+}
+
+input {
+  border: solid thin green;
+  font-family: Poppins, sans-serif;
+  border-radius: 2rem;
+  width: 20vw;
+  margin-right: 1rem;
+}
+
+input:focus {
+  border: thin solid #1ca404;
+}
+
+input:active {
+  border: thin solid #1ca404;
+}
+

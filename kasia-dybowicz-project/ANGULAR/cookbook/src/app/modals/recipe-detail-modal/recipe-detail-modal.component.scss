@@ -1,0 +1,81 @@
+@import "./recipe-detail-modal-full";
+@import "./recipe-detail-modal-small";
+
+h2 {
+  font-family: Poppins, sans-serif;
+  color: #088f04;
+  padding-left: 2rem;
+}
+
+.ingredients_and_photo {
+  font-family: Poppins, sans-serif;
+  width: 70vw;
+}
+
+.ingredients {
+  padding-left: 2rem;
+}
+
+.methods {
+  font-family: Poppins,sans-serif;
+  padding-left: 2rem;
+  padding-right: 3rem;
+  width: 70vw;
+}
+
+#close-btn {
+  background-color: #33c71b;
+  border-color: #e0e0e0;
+  border-radius: 1rem;
+  box-shadow: 0 2px 5px darkgrey;
+  font-family: Poppins, sans-serif;
+  height: 2rem;
+  width: 4rem;
+  //margin-left: 60vw;
+}
+
+#close-btn:hover {
+  background-color: #088f04;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+
+.recipe_photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/*      CHECKBOX         */
+.heart-checkbox {
+  font-size: 2rem; /* Adjust size as needed */
+  text-shadow: 0 2px 5px darkgrey;
+}
+
+.heart-checkbox input[type="checkbox"] {
+  display: none; /* Hide the checkbox */
+}
+
+.heart-checkbox span {
+  cursor: pointer;
+  transition: color 0.3s ease;
+  color: lightgray; /* Default heart color */
+}
+
+.heart-checkbox input[type="checkbox"]:checked + span {
+  color: #f8028e; /* Color when checked */
+}
+
+

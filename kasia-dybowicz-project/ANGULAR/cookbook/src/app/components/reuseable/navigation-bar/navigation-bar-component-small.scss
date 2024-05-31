@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 1000px){
+  .menu {
+    margin-left: 3vw;
+    margin-top: 0.7rem;
+    font-family: "Poppins SemiBold", sans-serif;
+    position: relative;
+    display: inline-block;
+  }
+
+  .welcomeMessage {
+    font-size: small;
+    padding-right: 1rem;
+  }
+
+  .menu-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    padding: 3px 3px;
+    z-index: 1;
+  }
+
+  .menu:hover .menu-dropdown {
+    display: block;
+  }
+}

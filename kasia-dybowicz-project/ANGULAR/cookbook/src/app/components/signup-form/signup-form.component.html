@@ -1,0 +1,88 @@
+<div class="background">
+    <div class="wrapping">
+        <div class="app-div">
+            <h1>Create your account</h1>
+
+            <div class="signup__form">
+                <form class="form__container" [formGroup]="signupForm" (ngSubmit)="addUser()">
+                    <h2>To proceed you need to create your account</h2>
+                    <div class="form__field">
+                        <label for="username">Your username</label><br/>
+                        <input id="username"
+                               type="text"
+                               placeholder="Select your username"
+                               formControlName="username"
+                               aria-label="Username input field"/>
+                        <!--        if the username is omitted it will spill an error-->
+                        <div *ngIf="signupForm.controls['username'].invalid && signupForm.controls['username'].dirty">
+                            <p class="userError">Username is required.
+                                <br>Username must be at least 4 characters long.
+                                <br>Username must contain only letters and numbers.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="name">Your name</label><br/>
+                        <input id="name" type="text" placeholder="Select your name" formControlName="name"
+                               aria-label="Name input field"/>
+                        <!--        if the name is omitted it will spill an error-->
+                        <div *ngIf="signupForm.controls['name'].invalid && signupForm.controls['name'].dirty">
+                            <p class="userError">Your name is required and it must contain at least two letters</p>
+                        </div>
+                    </div>
+
+
+                    <div class="form__field">
+                        <label for="email">Your email</label><br/>
+
+                        <input id="email" type="email" placeholder="Provide your email" formControlName="email"
+                               aria-label="E-mail input field"/>
+                        <!--        if the email is omitted it will spill an error-->
+                        <div *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].dirty">
+                            <p class="userError">Please provide your valid email address</p>
+                        </div>
+                    </div>
+
+                    <div class="form__field">
+                        <label for="password">Password</label><br/>
+                        <input id="password" type="password" placeholder="Select your password"
+                               formControlName="password"
+                               aria-label="Password input field"/>
+                        <!--        if the password is omitted it will spill an error-->
+                        <div *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].dirty">
+                            <p class="userError">Sorry your password must contain:<br>
+                                at least 8 characters, an upper and lower case letter,<br>
+                                a symbol, a number, a hieroglyph, a musical note,<br>
+                                a haiku, a feather of a phoenix, and a drop of unicorn blood...<br>
+                                ...if that didn't work, try typing two characters.</p>
+                        </div>
+
+                        <!--        <div class="form__field">-->
+                        <!--          <label for="image">Upload your image</label><br/>-->
+                        <!--          <input id="image" type="file" (change)="onFileSelect($event)" accept="image/png, image/jpeg"/>-->
+                        <!--          &lt;!&ndash;        if the password is omitted it will spill an error&ndash;&gt;-->
+
+                        <!--          <div *ngIf="invalidFileType">-->
+                        <!--            <p class="userError">Your photo must be jpg or png type</p>-->
+                        <!--          </div>-->
+                        <!--          <div *ngIf="fileTooLarge">-->
+                        <!--            <p class="userError">Your photo must be under 2 MB</p>-->
+                        <!--          </div>-->
+
+                        <!--      </div>-->
+                    </div>
+                    <button [disabled]="!signupForm.valid" type="submit" aria-label="Sign up button">CREATE ACCOUNT
+                    </button>
+                </form>
+                <div class="no_account">
+                    <p class="goto_log_in">If you already have an account, you can log in <a
+                            routerLink="/login">here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+

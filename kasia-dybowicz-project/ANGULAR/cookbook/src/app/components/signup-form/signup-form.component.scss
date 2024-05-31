@@ -1,0 +1,110 @@
+.background {
+  position: absolute;
+  background-image: url(/assets/Photos/background__image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  min-height: 1050px;
+  min-width: 300px;
+}
+
+.wrapping {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-div {
+  background-color: snow;
+  justify-content: center;
+  border-radius: 2rem;
+  border: solid thin gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  width: 70vw;
+  min-width: 300px;
+  min-height: 500px;
+  max-width: 600px;
+}
+
+p, h1, h2, button {
+  font-family: Poppins, sans-serif;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+h2 {
+  font-size: larger;
+}
+
+.form__field {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+button {
+  background-color: #33c71b;
+  border-radius: 0.7rem;
+  border-color: #e0e0e0;
+  box-shadow: lightgrey 1px 1px 5px;
+  margin-top: 1rem;
+  transition: all 0.5s ease-out;
+  margin-bottom: 5vh;
+}
+
+button:hover {
+  background-color: #088f04;
+  color: #e0e0e0;
+  transition: background-color ease-in-out;
+  transition-duration: 0.7s;
+}
+
+button:disabled {
+  background-color: darkgrey;
+}
+
+label {
+  font-size: 0.8rem;
+  text-align: left;
+  font-family: Poppins, sans-serif;
+}
+
+input.ng-invalid.ng-touched {
+  border: red solid 0.5px;
+}
+
+.userError {
+  font-family: Poppins, sans-serif;
+  color: red;
+  font-size: 0.7rem;
+  margin: 0;
+  text-align: left;
+}
+
+input {
+  border-radius: 0.4rem;
+  border-width: thin;
+  margin-bottom: 2rem;
+  height: 1.5rem;
+  width: 50vw;
+  min-width: 220px;
+  max-width: 400px;
+  font-family: Poppins, sans-serif;
+}
+
+h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.goto_log_in {
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  font-size: 0.7rem;
+}

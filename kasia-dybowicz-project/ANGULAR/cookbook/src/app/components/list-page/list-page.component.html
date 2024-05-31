@@ -1,0 +1,29 @@
+<!--navigation and search bar-->
+<app-navigation-bar></app-navigation-bar>
+
+<!--shopping list elements-->
+<div class="background" aria-label="Background photo of spoons with spices">
+    <div class="display">
+        <div class="shopping-list">
+            <h3>This is a handy shopping list</h3>
+            <app-list-form (awesomeOutput)="parentFunction($event)"></app-list-form>
+            <div class="stuff__listed" *ngIf="arrayOfStuff !== ['']">
+
+                <div *ngFor="let stuffToAdd of arrayOfStuff" id="listToPrint"
+                     aria-label="Display of added items to shopping list">
+                    <p class="listedItems">{{ stuffToAdd }}</p>
+                </div>
+
+                <p class="note">once done adding all your shopping, please press GO to print your list</p>
+                <div class="buttons">
+                    <app-red-small-button
+                            [typeButtonText]="buttonReset"
+                            (buttonOutput)="resetList()" aria-label="Reset button"></app-red-small-button>
+                    <app-green-small-button
+                            [typeButtonText]="buttonGo"
+                            (buttonOutput)="doneAdding()" aria-label="Done button"></app-green-small-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
