@@ -1,0 +1,348 @@
+body{
+    /* background-color: darkgrey; */
+    margin: 0;
+    font-family: Poppins;
+}
+
+@font-face {
+        font-family: Zeyada;
+        src: url();
+}
+
+
+/*home page styling*/
+
+.main__image {
+    height: 20rem;
+    width: 100%;
+    background-color: #7FC008;
+    background-image: url("./Content/background__image.jpg");
+    background-position: top center;
+    background-size: cover;
+}
+
+.navbar__home span {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    background-color: white;
+    overflow:hidden;
+    padding-bottom: 1rem;
+}
+
+.navbar__home a {
+    color: rgba(0, 0, 0, 0.500);
+    padding: .2rem;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    border-bottom: .21rem solid transparent;
+}
+
+.navbar__home a:hover {
+    color: black;    
+    border-bottom: .21rem solid #7FC008;
+    transition: width .6s
+}
+
+.navbar__home a:active {
+    color: rgba(0, 0, 0, 0.700);    
+    border-bottom: .21rem solid #7FC008;
+    transition: width .6s
+}
+
+.navbar__home a:hover::after {
+    width: 100%;
+}
+
+/* may need to vector a logo text here instead h1 element */
+
+.home__title h1 {
+    font-family: Zeyada, sans-serif;
+    font-weight: 100;
+    font-size: 5rem;
+    text-align: center;
+}
+
+/*Search thingy*/
+
+.search__tab {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    justify-content: left;
+    border-top: solid #7FC008;
+    padding-top: 1rem;
+    padding-left: 4.3rem;
+}
+
+.search__tab input {
+    border-radius: .6rem;
+    margin-right: 1rem;
+    width: 25rem;
+    height: 2rem;
+    font-family: Poppins;
+}
+
+.search__tab button {
+    width: 7.5rem;
+    height: 2.5rem;
+    font-family: Poppins;
+    background-color: #7FC008;
+    border-radius: 2.5rem;
+    box-shadow: 0 .1rem .2rem silver;
+    transition: all 0.5s ease-out;
+}
+
+
+.search__tab button:hover {
+    background-color: yellowgreen;
+}
+
+
+/*Food photos*/
+
+.home__food {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    justify-content: space-evenly;
+    }
+
+.home__food img {
+    height: 15vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+}
+
+.home__food figcaption {
+    text-align: right;
+    margin-right: -2rem;
+}
+
+/*RECIPE STYLING*/
+
+.navbar__other span {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    background-color: white;
+    overflow:hidden;
+    padding-bottom: 1rem;
+    padding-top: 1.5rem;
+}
+
+.navbar__other a {
+    color: rgba(0, 0, 0, 0.500);
+    padding: .2rem;
+    text-decoration: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    border-bottom: .21rem solid transparent;
+}
+
+.navbar__other a:hover {
+    color: black;
+    border-bottom: .21rem solid #7FC008;
+    transition: width .6s
+}
+
+.navbar__other a:active {
+    color: rgba(0, 0, 0, 0.700);
+    border-bottom: .21rem solid #7FC008;
+    transition: width .6s
+}
+
+.navbar__other a:hover::after {
+    width: 100%;
+}
+
+.recipe__title {
+    font-family: Poppins, sans-serif;
+    font-size: 2.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.recipe__pic_ing {
+    display: flex;
+    flex-align: row;
+    margin-left: 1.5rem;
+}
+
+.recipe__ing {
+flex: 1 1 0;
+}
+
+.recipe__pic {
+flex: 2 1 0;
+}
+
+.filter {
+flex: 1 1 0;
+}
+
+
+.recipe__pic img {
+    padding-left: 5rem;
+    padding-top: 2.5rem;
+    height: 14rem;
+    }
+
+
+.recipe__ing li {
+    decoration:none;
+}
+
+.recipe__method h3 {
+    margin: 1.5rem;
+
+}
+
+
+.recipe__method p {
+    margin: 1.5rem;
+    display: flex;
+}
+
+
+/*FILTERING*/
+
+.filter {
+    padding-left: 10rem;
+}
+
+
+.filter .button__filter {
+    background-color: #7FC008;
+    border-radius: 0.7rem;
+    width: 5rem;
+    height: 1.5rem;
+    margin-top: 1rem;
+    transition: all 0.5s ease-out;
+}
+
+.filter .button__filter:hover {
+    background-color: yellowgreen;
+}
+
+/*Recommendations photos*/
+
+.recommend_heading h4 {
+    border-top: .21rem solid #7FC008;
+    border-bottom: .21rem solid #7FC008;
+    padding-top: 1.5rem;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.recommendations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    justify-content: space-evenly;
+
+}
+
+.recommendations img {
+    width: 15vw;
+    margin-left: -2rem;
+    margin-right: -2rem;
+}
+
+.recommendations figcaption {
+    text-align: right;
+    margin-right: -2rem;
+}
+
+footer .freepik {
+    font-size: .7rem;
+    line-height: .5rem;
+}
+
+/*LOG IN STYLING*/
+
+.login {
+    border: solid grey;
+    border-width: thin;
+    border-radius: 2rem;
+    height: 35rem;
+    width: 25rem;
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 35%;
+}
+
+.login h2 {
+margin-top: 4rem;
+margin-bottom: 3rem;
+}
+
+.login input{
+    border-radius: 0.4rem;
+    border-width: thin;
+    margin-bottom: 2rem;
+    height: 1.5rem;
+    width: 15rem;
+}
+
+.login label {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.btn__login {
+margin-top: 7rem;
+}
+
+.btn__login button {
+    font-size: 1rem;
+    background-color: #7FC008;
+    border-radius: 0.7rem;
+    width: 15rem;
+    height: 1.7rem;
+    margin-top: 1rem;
+    transition: all 0.5s ease-out;
+}
+
+.btn__login button:hover {
+    background-color: yellowgreen;
+}
+
+.login .back {
+    text-align: left;
+    margin-left: 1.5rem;
+    margin-top: 2rem;
+}
+
+.login .back a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.8rem;
+}
+
+.go__back {
+    text-align: center;
+}
+
+.go__back a {
+    text-decoration: none;
+    color: black;
+}
+
+.minion img {
+width: 100%;
+
+}

@@ -1,0 +1,12 @@
+package au.com.agic.kasia.project.backend.repository;
+
+import au.com.agic.kasia.project.backend.models.UserDetails;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface UserRepository extends JpaRepository <UserDetails, Integer>{
+    Optional<UserDetails> findByUsername(String username);
+
+
+}
