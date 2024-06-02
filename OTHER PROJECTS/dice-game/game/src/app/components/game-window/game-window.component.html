@@ -1,0 +1,15 @@
+<div class="background">
+  <div class="need-gap">
+<h1>A roll a die game</h1>
+<p class="rules">The aim of the game is to get to space 20 within 5 rolls.</p>
+<div>
+  <button class="roll-button" (click)="dieRolled()" [disabled]="yourRoll>4">Roll a die</button>
+  <p class="what-rolled">You rolled {{rollResult}}</p>
+  <p class="remaining">You have {{remainingRolls}} rolls remaining</p>
+  <p class="moved">You moved to space number {{currentSpace}}</p>
+  <p class="rolls-count">You rolled {{yourRoll}} times</p>
+  <p class="message">{{message}}</p>
+  <button class="refresh" (click)="refresh()">New game</button>
+</div>
+</div>
+</div>

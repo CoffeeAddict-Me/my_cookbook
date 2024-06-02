@@ -1,0 +1,21 @@
+
+
+<div class="wrapper">
+<h1>Things I need to do</h1>
+<label>Add things you need to do</label><br>
+<input type="text" [(ngModel)]="noteToAdd.note" id="input">
+<button (click)="addNotes()">Add Note</button>
+
+<div class="display">
+  <ol>
+    <li *ngFor="let note of allNotes">
+<!--      Debug Note: {{ note | json }}-->
+      {{note.note}}<br>
+<!--      <button (click)="updateNote(note.id, note)" class="btn-update">Update</button>-->
+      <button (click)="deleteNote(note.id)" class="btn-delete">Delete</button>
+    <br>
+    </li>
+    <br>
+  </ol>
+</div>
+</div>
