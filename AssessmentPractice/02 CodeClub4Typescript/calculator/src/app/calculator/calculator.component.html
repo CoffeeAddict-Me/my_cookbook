@@ -1,0 +1,17 @@
+<form [formGroup]="formGroup">
+    <label for="a">First number:</label>
+    <input id="a" placeholder="input your number" formControlName="a">
+
+    <label for="b">Second number:</label>
+    <input id="b" placeholder="input your number" formControlName="b">
+
+    <p>You entered {{ formGroup.value.a }} and {{ formGroup.value.b }}</p>
+
+    <button type="button" (click)="add()">+</button>
+    <button type="button" (click)="subtract()">-</button>
+    <button type="button" (click)="multiply()">*</button>
+    <button type="button" (click)="divide()">/</button>
+    <button type="button" (click)="clear()">Clear</button>
+</form>
+
+<p class="display">{{ result }}</p>

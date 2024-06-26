@@ -1,0 +1,72 @@
+<html>
+<head>
+    <style>
+        .toggle {
+            width: 100px;
+            height: 100px;
+            background-color: azure;
+            border-radius: 15px;
+            box-shadow: 5px 5px 5px lightgrey;
+            font-weight: bold;
+            margin: 5px;
+        }
+
+        .lightbox {
+            width: 100px;
+            height: 100px;
+            border: solid silver;
+            border-radius: 5px;
+            margin: 5px;
+            background-color: black;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <button class="toggle"
+            onclick="toggle()">OFF
+    </button>
+    <div class="row">
+        <div class="lightbox" id="lb1"></div>
+        <div class="lightbox" id="lb2"></div>
+    </div>
+    <div class="row">
+        <div class="lightbox" id="lb3"></div>
+        <div class="lightbox" id="lb4"></div>
+    </div>
+</div>
+<script>
+    function toggle() {
+        const myButton = document.querySelector("button");
+        const lb1 = document.getElementById("lb1")
+
+        if (myButton.innerHTML === "ON") {
+            myButton.innerHTML = "OFF"
+            document.getElementById('lb1').style.backgroundColor = 'black'
+            document.getElementById('lb2').style.backgroundColor = 'black'
+            document.getElementById('lb3').style.backgroundColor = 'black'
+            document.getElementById('lb4').style.backgroundColor = 'black'
+        } else {
+            myButton.innerHTML = "ON"
+            document.getElementById('lb1').style.backgroundColor = 'yellow'
+            document.getElementById('lb2').style.backgroundColor = 'red'
+            document.getElementById('lb3').style.backgroundColor = 'green'
+            document.getElementById('lb4').style.backgroundColor = 'blue'
+        }
+    }
+
+
+</script>
+</body>
+</html>
