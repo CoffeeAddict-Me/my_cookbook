@@ -1,0 +1,20 @@
+
+<form [formGroup]="inputForm" (ngSubmit)="submitForm()">
+  <label for="firstName">First Name</label>
+  <input id="firstName" formControlName="firstName">
+
+  <label for="lastName">Last Name</label>
+  <input id="lastName" formControlName="lastName">
+
+  <label for="dob">Date of Birth</label>
+  <input id="dob" formControlName="dob" type="date">
+
+  <label for="favColour">Favourite Colour</label>
+  <input id="favColour" formControlName="favColour">
+
+  <label for="favHobby">Favourite Hobby</label>
+  <input id="favHobby" formControlName="favHobby">
+
+  <button type="submit">Submit!</button>
+</form>
+

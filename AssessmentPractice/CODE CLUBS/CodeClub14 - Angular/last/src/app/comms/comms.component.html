@@ -1,0 +1,22 @@
+<h3>Comments</h3>
+<ul>
+    <li  *ngFor="let comm of allComments" >
+         {{ comm.body }} written by {{ comm.name }}
+    </li>
+</ul>
+<h3>Leave a comment</h3>
+<div>
+    <form [formGroup]="inputForm" (ngSubmit)="clicked()">
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text">
+
+
+        <label for="body">Comment:</label>
+        <textarea id="body" formControlName="body"></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+

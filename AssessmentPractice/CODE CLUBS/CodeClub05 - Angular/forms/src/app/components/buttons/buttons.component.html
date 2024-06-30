@@ -1,0 +1,21 @@
+<div class="background" *ngIf="youDidIt"><h1>Button was clicked {{clickCounter}} times</h1>
+<p>Step 1</p>
+  <app-small-button [typeButtonText]="button1Text"  (click)="button1Clicked()"></app-small-button>
+<!--<button class="button1">Click me to add 1</button>-->
+
+<p>Step 2</p>
+<!--<button class="button2" (click)="button2Clicked()">Click me to remove 1</button>-->
+  <app-small-button [typeButtonText]="button2Text"  (click)="button2Clicked()"></app-small-button>
+<p>Step 3</p>
+
+<!--<button class="button3" (click)="clear()">Clear</button>-->
+  <app-small-button [typeButtonText]="button3Text"  (click)="button3Clicked()"></app-small-button>
+<p>Step 4</p>
+<!--<button  class="button4" (click)="random()">Random number of clicks</button>-->
+  <app-small-button [typeButtonText]="button4Text"  (click)="button4Clicked()"></app-small-button>
+<div *ngIf="seriously"><p>You didn't seriously click more than 20 times!</p></div>
+  <br>
+  <br>
+<!--<button (click)="doNot()" class="nope">Do not press!</button>-->
+  <app-small-button [typeButtonText]="button5Text"  (click)="doNot()"></app-small-button>
+</div>

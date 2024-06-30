@@ -1,0 +1,43 @@
+
+<h2>Username generator</h2>
+
+<form [formGroup]="inputForm" (ngSubmit)="formSubmitted()">
+    <div class="form-field">
+        <label for="firstName">First name</label>
+        <input id="firstName"
+               formControlName="firstName"
+               placeholder="Enter your first name"
+               type="text"
+               aria-label="Input field for your first name"
+        >
+    </div>
+    <div class="form-field">
+        <label for="lastName">Last name</label>
+        <input id="lastName"
+               formControlName="lastName"
+               placeholder="Enter your last name"
+               type="text"
+               aria-label="Input field for your last name"
+        >
+    </div>
+    <div class="add-symbol">
+        <label for="symbol">symbol</label>
+        <input id="symbol" type="checkbox" formControlName="addSymbol">
+    </div>
+
+    <div class="buttons">
+        <button [disabled]="!inputForm.valid"
+                type="submit"
+                aria-label="Generate button"
+        >Generate</button>
+    </div>
+
+    <div *ngIf="inputForm.invalid && inputForm.controls['firstName'].dirty && inputForm.controls['lastName'].dirty">
+    <p class = "inputError">Only letters allowed in the input fields</p>
+    </div>
+
+    <div >
+        <p>Your generated username is:</p>
+        <p class="output">{{ generatedUsername }}</p>
+    </div>
+</form>

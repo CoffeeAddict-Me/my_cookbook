@@ -1,0 +1,17 @@
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 40%;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.p1 {
+  padding-top: 20px;
+}
+
+.p3 {
+  padding-bottom: 20px;
+}

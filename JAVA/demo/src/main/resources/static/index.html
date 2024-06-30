@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    Operand #1: <input type="text" id="op1"><br>
+    Operand #2: <input type="text" id="op2"><br>
+    Operation: <select id="operand">
+        <option value="sum">+</option>
+        <option value="subtract">-</option>
+        <option value="multiply">x</option>
+        <option value="divide">/</option>
+    </select><br>
+    <button onclick="calculate()">Calculate</button>
+<hr>
+<div id="result_box">
+    Result: <span id="result"></span>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+.container {
+
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+}
+
+.w3-button {
+  cursor: pointer;
+}
+
+.w3-display-left, .w3-display-right {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.w3-display-left {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.w3-display-right {
+  right: 0;
+  border-radius: 3px 3px 0 0;
+}
+
+img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vw;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-family: "Poppins SemiBold";
+}

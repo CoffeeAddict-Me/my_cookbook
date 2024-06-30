@@ -1,0 +1,18 @@
+<div class="container">
+    <form [formGroup]="inputForm">
+        <label for="first-name">First name:</label>
+        <input id="first-name" formControlName="first">
+
+        <label for="last-name">Last Name:</label>
+        <input id="last-name" formControlName="last">
+
+        <button (click)="clicked()">Click me!</button>
+
+    </form>
+    <label for="checkbox">symbol</label>
+    <input type="checkbox" id="checkbox" [(ngModel)]="checked">
+    <div class="output">
+        <p>{{username}}</p>
+    </div>
+
+</div>

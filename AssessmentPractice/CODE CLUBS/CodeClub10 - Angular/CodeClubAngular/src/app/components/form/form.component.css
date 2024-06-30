@@ -1,0 +1,21 @@
+h2 {
+    color: darkcyan;
+}
+
+label, input, p, button, h2 {
+    font-family: Poppins;
+}
+
+label {
+    padding-right: 5vh;
+}
+
+button {
+    background-color: rgba(0, 139, 139, 0.38);
+    border-radius: 10px;
+}
+
+.output {
+    font-family: "Poppins SemiBold";
+    color: darkmagenta;
+}

@@ -1,0 +1,120 @@
+body{
+    width: 800px;
+    margin: 0 auto;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}  
+
+.nav{
+    color: white;
+}
+
+.top-text{
+    font-family: verdana;
+    font-size: 12px;
+    background-color: #003399;
+    padding-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #6698CB;
+}
+
+.line{
+    height: 100px;
+    background-color: #003399;
+}
+
+.top-text label {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.nav label {
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top-text a {
+    padding-top: 2px;
+}
+
+
+.nav a {
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    text-decoration: none;
+}
+
+.light__blue__nav {
+background-color: #6698CB;
+padding-top: 5px;
+padding-bottom: 5px;
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.stuff {
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-left: solid blue;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#left {
+    border: none;
+}
+
+
+.main__column {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+
+      /* need spacing 2 / 3 */
+}
+.column_left{
+    width: 300px
+}
+
+.column_right {
+    flex: 1;
+}
+
+.small_pic {
+    display: flex;
+    flex-direction: row;
+    p{
+        margin-left: 5px;
+    }
+}
+
+
+
+.box {
+    margin-top: 10px;
+    border: 2px solid black;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.blurb {
+    background-color: #FFCC99;
+    color: red;
+
+}
+
+.about {
+    color: red;
+}
+
+#green_text {
+    color: green;
+}
