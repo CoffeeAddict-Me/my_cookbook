@@ -1,0 +1,19 @@
+<div class="container">
+<div *ngIf="!gameStarted" class="player-selection">
+    <p>Select your player:</p>
+    <button (click)="choosePlayer('X')">X</button>
+    <button (click)="choosePlayer('O')">O</button>
+</div>
+
+<div *ngIf="gameStarted" class="board">
+    <div *ngFor="let cell of board; let i = index" class="cell" (click)="makeMove(i)">
+        {{ cell }}
+    </div>
+</div>
+
+<div *ngIf="gameWon || isDraw">
+    <p *ngIf="gameWon">Player {{ currentPlayer }} wins!</p>
+    <p *ngIf="isDraw">It's a draw!</p>
+    <button (click)="resetGame()" class="reset-button">Reset Game</button>
+</div>
+</div>

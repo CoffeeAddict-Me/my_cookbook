@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1de67f55-6add-4acb-971c-8fc7efd3ad13" name="Changes" comment="" />
+    <list default="true" id="1de67f55-6add-4acb-971c-8fc7efd3ad13" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../CODE CLUBS/CodeClub03 - JavaScript/code-club" beforeDir="false" afterPath="$PROJECT_DIR$/../CODE CLUBS/CodeClub03 - JavaScript/code-club" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CODE CLUBS/CodeClub09 - TypeScript/codeclubTS/typescript-barebone-boilerplate" beforeDir="false" afterPath="$PROJECT_DIR$/../CODE CLUBS/CodeClub09 - TypeScript/codeclubTS/typescript-barebone-boilerplate" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2icKEKqgAodUv4mtTrUzqTHabv5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,8 +25,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/kasia-project/AssessmentPractice/JavaQuickOnes",
+    "last_opened_file_path": "C:/github/AssessmentPractice/CodeClub6Java",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -44,7 +51,11 @@
       <option name="presentableId" value="Default" />
       <updated>1719784312362</updated>
       <workItem from="1719784313380" duration="34000" />
+      <workItem from="1719873110406" duration="4000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>
