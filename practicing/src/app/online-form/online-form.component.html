@@ -1,0 +1,28 @@
+<div class="container">
+    <form [formGroup]="inputForm" (ngSubmit)="clicked()">
+        <label>First name</label>
+        <input type="text" formControlName="first">
+
+        <label>Last name</label>
+        <input type="text" formControlName="last">
+
+        <label>DOB</label>
+        <input type="date" formControlName="dob">
+
+        <label>Favourite Colour</label>
+        <input type="text" formControlName="colour">
+
+        <label>Favourite Hobby</label>
+        <input type="text" formControlName="hobby">
+
+        <button type="submit">Click Me!</button>
+    </form>
+</div>
+
+<div class="out" id="outDisplay">
+    <p>Hello my name is <b>{{fullName}}</b>.</p>
+    <p>I was born on the <b>{{this.dob | date: 'd'}}{{this.suffix}} of {{this.dob | date:'MMMM'}}
+        {{this.dob | date:'yyyy'}}</b> and I am {{age}} years old.</p>
+    <p>My favourite colour is {{this.colour}} and in my spare time, I like to <b>{{this.hobby}}</b></p>
+
+</div>
