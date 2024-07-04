@@ -7,13 +7,15 @@ import { UsernameGeneratorComponent } from './username-generator/username-genera
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { OnlineFormComponent } from './online-form/online-form.component';
 import { IncrementButtonComponent } from './increment-button/increment-button.component';
+import { ListComponent } from './list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsernameGeneratorComponent,
     OnlineFormComponent,
-    IncrementButtonComponent
+    IncrementButtonComponent,
+    ListComponent
   ],
     imports: [
         BrowserModule,
